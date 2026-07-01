@@ -1,3 +1,11 @@
+---
+title: "Các events đã tham gia"
+date: 2024-01-01
+weight: 4
+chapter: false
+pre: " <b> 4. </b> "
+---
+
 Trong quá trình thực tập, em đã có cơ hội tham gia ba sự kiện liên quan đến AWS Cloud, AI và cộng đồng công nghệ. Mỗi sự kiện đều mang đến những trải nghiệm đáng nhớ, giúp em tiếp cận những kiến thức thực tiễn, học hỏi từ các chuyên gia, mở rộng mối quan hệ với cộng đồng và tích lũy thêm nhiều kinh nghiệm hữu ích cho quá trình học tập cũng như phát triển nghề nghiệp.
 
 ### [Sự kiện 1](4.1-Event1/)  

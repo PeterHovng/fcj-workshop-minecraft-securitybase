@@ -1,3 +1,11 @@
+---
+title: "Blog 1"
+date: 2024-01-01
+weight: 1
+chapter: false
+pre: " <b> 3.1. </b> "
+---
+
 # CYBER SECURITY TRÊN AWS: KHÔNG CHỈ DÙNG WAF, HÃY TỰ ĐỘNG HÓA WAF
 
 Khi triển khai **AWS WAF**, nhiều đội ngũ thường bắt đầu bằng việc tạo một vài rule để chặn **SQL Injection**, **Cross-Site Scripting (XSS)** hoặc giới hạn **request rate**.

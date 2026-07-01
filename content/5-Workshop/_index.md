@@ -44,6 +44,18 @@ This workshop transforms a standard Minecraft server into a security-hardened en
 - Server administration without key pairs or public SSH
 - Mini **SOAR** (Security Orchestration, Automation, and Response) demo: Attack → Auto block IP → Email alert
 
+#### Architecture Diagram
+
+![Architecture Diagram](/images/5-Workshop/5.0/Architecture.png)
+
+#### Project Cost Estimate
+
+The following screenshots show the estimated monthly cost for this lab using the **AWS Pricing Calculator**:
+
+![Bill estimate overview](/images/5-Workshop/5.0/0.a.Bill.png)
+
+![Bill estimate details](/images/5-Workshop/5.0/0.b.Bill.png)
+
 #### Content
 
 1. [Project Overview & Cost](5.0/)

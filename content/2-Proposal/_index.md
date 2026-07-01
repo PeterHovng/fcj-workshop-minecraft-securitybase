@@ -1,4 +1,11 @@
-# Project Proposal
+---
+title: "Proposal"
+date: 2024-01-01
+weight: 2
+chapter: false
+pre: " <b> 2. </b> "
+---
+
 ## Minecraft Server Security Platform on AWS
 ### Automated Intrusion Detection and Incident Response Using AWS Services
 

@@ -5,6 +5,7 @@ weight: 1
 chapter: false
 pre: " <b> 3.3. </b> "
 ---
+
 # MINECRAFT CYBER SECURITY ON AWS: DON'T JUST OPEN SECURITY GROUPS — AUTOMATE INCIDENT RESPONSE (SOAR FOR GAME SERVERS)
 
 When deploying service hosts such as a Minecraft Server on AWS, many teams usually start by creating a few Security Groups to allow inbound connections (such as TCP port 25565) and restrict access by IP address.

@@ -1,4 +1,11 @@
-# Đề xuất dự án
+---
+title: "Bản đề xuất"
+date: 2024-01-01
+weight: 2
+chapter: false
+pre: " <b> 2. </b> "
+---
+
 ## Hệ thống bảo mật máy chủ Minecraft trên AWS
 ### Phát hiện xâm nhập và tự động ứng phó bằng các dịch vụ AWS
 

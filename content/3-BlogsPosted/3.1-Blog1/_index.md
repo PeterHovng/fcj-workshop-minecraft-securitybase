@@ -1,3 +1,11 @@
+---
+title: "Blog 1"
+date: 2024-01-01
+weight: 1
+chapter: false
+pre: " <b> 3.1. </b> "
+---
+
 # CYBER SECURITY ON AWS: DON'T JUST USE WAF — AUTOMATE IT
 
 When deploying **AWS WAF**, many teams start by creating a few rules to block **SQL Injection (SQLi)**, **Cross-Site Scripting (XSS)**, or to enforce **rate limiting**.

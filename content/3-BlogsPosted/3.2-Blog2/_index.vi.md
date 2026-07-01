@@ -1,3 +1,11 @@
+---
+title: "Blog 2"
+date: 2024-01-01
+weight: 1
+chapter: false
+pre: " <b> 3.2. </b> "
+---
+
 # [DỰ ÁN ĐANG ĐƯỢC CẬP NHẬT] CYBER SECURITY TRÊN AWS: TỪ WAF TỰ ĐỘNG HÓA ĐẾN HỆ THỐNG PHÁT HIỆN XÂM NHẬP BẰNG MACHINE LEARNING
 
 Trong quá trình tìm hiểu về Cyber Security trên AWS, mình đã có cơ hội nghiên cứu và triển khai giải pháp Security Automations for AWS WAF. Đây là một giải pháp khá thú vị vì nó cho phép tự động phát hiện, phân tích và phản ứng với các hành vi tấn công nhắm vào ứng dụng web mà không cần quá nhiều thao tác thủ công từ đội ngũ vận hành.

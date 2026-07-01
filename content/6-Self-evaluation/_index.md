@@ -1,3 +1,11 @@
+---
+title: "Self-Assessment"
+date: 2024-01-01
+weight: 6
+chapter: false
+pre: " <b> 6. </b> "
+---
+
 Throughout my internship at **Bootcamp First Cloud AI Journey** from **April 20, 2026** to **July 12, 2026**, I had the opportunity to learn, develop, and apply the knowledge acquired during my university studies in a real-world working environment.
 
 During the internship, I participated in **project development, technical workshops, research activities, and self-directed learning**, which significantly improved my skills in **programming, system analysis, technical documentation, communication, teamwork, and problem-solving**.

@@ -5,6 +5,7 @@ weight: 1
 chapter: false
 pre: " <b> 3.3. </b> "
 ---
+
 # MINECRAFT CYBER SECURITY TRÊN AWS : KHÔNG CHỈ LÀ MỞ SECURITY GROUP, HÃY TỰ ĐỘNG HÓA PHẢN ỨNG SỰ CỐ (SOAR CHO GAME SERVER)
 
 Khi triển khai các máy chủ dịch vụ như Minecraft Server trên AWS, nhiều đội ngũ thường bắt đầu bằng việc tạo một vài Security Group để mở cổng kết nối (như cổng TCP 25565) và giới hạn IP truy cập.
