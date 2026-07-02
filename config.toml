@@ -1,4 +1,4 @@
-baseURL = "https://peterhovng.github.io/fcj-workshop-minecraft-securitybase/"
+baseURL = "https://peterhovng.github.io/AWS.Minecraft-Security-Based/"
 relativeURLs = true
 canonifyURLs = true
 defaultContentLanguage = "en"
