@@ -157,15 +157,15 @@ Sau khi tham gia sự kiện, em rút ra một số bài học quan trọng:
 
 # 9. Một số hình ảnh khi tham gia sự kiện
 
-![endpoint]( /images/4-EventsParticipated/4.2-Event1/6C7A4659.JPG )
+![endpoint]( /images/4-EventsParticipated/4.1-Event1/6C7A4659.JPG )
 
-![endpoint]( /images/4-EventsParticipated/4.2-Event1/6C7A4714.JPG )
+![endpoint]( /images/4-EventsParticipated/4.1-Event1/6C7A4714.JPG )
 
-![endpoint]( /images/4-EventsParticipated/4.2-Event1/6C7A4765.JPG )
+![endpoint]( /images/4-EventsParticipated/4.1-Event1/6C7A4765.JPG )
 
-![endpoint]( /images/4-EventsParticipated/4.2-Event1/6C7A4812.JPG )
+![endpoint]( /images/4-EventsParticipated/4.1-Event1/6C7A4812.JPG )
 
-![endpoint]( /images/4-EventsParticipated/4.2-Event1/6C7A4926.JPG )
+![endpoint]( /images/4-EventsParticipated/4.1-Event1/6C7A4926.JPG )
 
 ---
 

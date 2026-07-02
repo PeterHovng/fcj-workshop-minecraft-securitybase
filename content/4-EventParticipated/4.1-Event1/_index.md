@@ -157,15 +157,15 @@ After participating in the event, I drew several important conclusions:
 
 # 9. Event Photos
 
-![endpoint]( /images/4-EventsParticipated/4.2-Event1/6C7A4659.JPG )
+![endpoint]( /images/4-EventsParticipated/4.1-Event1/6C7A4659.JPG )
 
-![endpoint]( /images/4-EventsParticipated/4.2-Event1/6C7A4714.JPG )
+![endpoint]( /images/4-EventsParticipated/4.1-Event1/6C7A4714.JPG )
 
-![endpoint]( /images/4-EventsParticipated/4.2-Event1/6C7A4765.JPG )
+![endpoint]( /images/4-EventsParticipated/4.1-Event1/6C7A4765.JPG )
 
-![endpoint]( /images/4-EventsParticipated/4.2-Event1/6C7A4812.JPG )
+![endpoint]( /images/4-EventsParticipated/4.1-Event1/6C7A4812.JPG )
 
-![endpoint]( /images/4-EventsParticipated/4.2-Event1/6C7A4926.JPG )
+![endpoint]( /images/4-EventsParticipated/4.1-Event1/6C7A4926.JPG )
 
 ---
 

@@ -138,7 +138,7 @@ After participating in the event, I learned several important lessons:
 
 ![endpoint]( /images/4-EventsParticipated/4.2-Event2/6C7A9734.JPG )
 
-![endpoint]( /images/4-EventsParticipated/4.2-Event2/6C7A7007.JPG )
+![endpoint]( /images/4-EventsParticipated/4.2-Event2/6C7A9728.JPG )
 
 ![endpoint]( /images/4-EventsParticipated/4.2-Event2/6C7A9774.JPG )
 
