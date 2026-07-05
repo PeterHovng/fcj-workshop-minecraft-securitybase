@@ -167,7 +167,7 @@ The **First Cloud AI Journey – Agentic AI Build Week** was a highly valuable l
 
 ![endpoint]( /images/4-EventsParticipated/4.3-Event3/6C7A4765.JPG )
 
-![endpoint]( /images/4-EventsParticipated/4.3-Event1/6C7A4812.JPG )
+![endpoint]( /images/4-EventsParticipated/4.3-Event3/6C7A4812.JPG )
 
 ![endpoint]( /images/4-EventsParticipated/4.3-Event3/6C7A4926.JPG )
 
