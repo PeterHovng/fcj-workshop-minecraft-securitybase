@@ -17,7 +17,7 @@ pre: " <b> 4.2. </b> "
 
 ---
 
-# 1. Purpose of the Event
+## 1. Purpose of the Event
 
 The event was organized as an academic knowledge-sharing activity for students participating in the AWS program. Its purpose was to help participants review and strengthen their understanding of Cloud Computing, AWS services, and practical cloud-related concepts.
 
@@ -25,7 +25,7 @@ In addition, the event encouraged participants to improve their critical thinkin
 
 ---
 
-# 2. Speakers and Organizers
+## 2. Speakers and Organizers
 
 The event involved the following groups:
 
@@ -35,7 +35,7 @@ The event involved the following groups:
 
 ---
 
-# 3. Event Highlights
+## 3. Event Highlights
 
 The highlight of the program was a knowledge competition among **8 teams**.
 
@@ -54,7 +54,7 @@ The event atmosphere was exciting and energetic. All teams demonstrated strong k
 
 ---
 
-# 4. Knowledge Gained
+## 4. Knowledge Gained
 
 Through the competition, I learned and reviewed many useful topics, including:
 
@@ -65,7 +65,7 @@ Through the competition, I learned and reviewed many useful topics, including:
 
 ---
 
-# 5. Practical Applications
+## 5. Practical Applications
 
 The knowledge gained from the event can be applied to:
 
@@ -78,13 +78,13 @@ The knowledge gained from the event can be applied to:
 
 ---
 
-# 6. Event Experience
+## 6. Event Experience
 
-## Learning from Experienced Mentors
+### Learning from Experienced Mentors
 
 The mentors shared practical experience in using AWS services, explained questions from the competition, and provided useful advice. Their explanations helped participants better understand how to deploy services in cloud environments.
 
-## Practical Technical Experience
+### Practical Technical Experience
 
 Although the program was organized as a competition, each question was closely connected to real-world AWS use cases.
 
@@ -95,7 +95,7 @@ Through the event, I gained a better understanding of:
 - Service scalability.
 - AWS resource management.
 
-## Exposure to Modern Tools
+### Exposure to Modern Tools
 
 The event helped participants become more familiar with popular AWS services, including:
 
@@ -108,7 +108,7 @@ The event helped participants become more familiar with popular AWS services, in
 
 It also helped me understand how these services can be combined to build a complete cloud-based system.
 
-## Networking and Knowledge Exchange
+### Networking and Knowledge Exchange
 
 Through the team competition activities, I had the opportunity to:
 
@@ -119,7 +119,7 @@ Through the team competition activities, I had the opportunity to:
 
 ---
 
-# 7. Lessons Learned
+## 7. Lessons Learned
 
 After participating in the event, I learned several important lessons:
 
@@ -130,7 +130,7 @@ After participating in the event, I learned several important lessons:
 
 ---
 
-# 8. Event Photos
+## 8. Event Photos
 
 ![endpoint]( /images/4-EventsParticipated/4.2-Event2/6C7A9632.JPG )
 
@@ -144,6 +144,6 @@ After participating in the event, I learned several important lessons:
 
 ---
 
-# 9. Conclusion
+## 9. Conclusion
 
 The event on June 20, 2026 was a meaningful academic activity that helped participants review AWS knowledge, improve teamwork, and strengthen practical thinking in Cloud Computing. Through the competition, I gained more confidence in applying AWS services and identified areas for further learning and improvement in the future.

@@ -17,7 +17,7 @@ pre: " <b> 4.2. </b> "
 
 ---
 
-# 1. Purpose of the Event
+## 1. Purpose of the Event
 
 The **First Cloud AI Journey – Agentic AI Build Week** was organized to introduce participants to practical learning pathways in Cloud Computing and Artificial Intelligence. The event focused on AWS technologies, cloud cost optimization strategies, and the growing potential of Agentic AI systems across various real-world applications.
 
@@ -25,7 +25,7 @@ In addition to technical knowledge, the event created opportunities for students
 
 ---
 
-# 2. Organizers and Participants
+## 2. Organizers and Participants
 
 The event was organized by:
 
@@ -45,18 +45,18 @@ Participants included:
 
 ---
 
-# 3. Event Highlights
+## 3. Event Highlights
 
 The event featured a variety of presentations covering personal development, Cloud Computing, and Artificial Intelligence.
 
-## Personal Development and Mindset
+### Personal Development and Mindset
 
 The speakers shared valuable insights into self-improvement and professional growth, including:
 
 - **The Iceberg of Procrastination:** Understanding that procrastination is often driven by psychological barriers such as fear of failure and fear of being judged rather than laziness.
 - **Confidence:** Emphasizing the importance of confidence in communication, networking, and career development, along with practical methods for building self-confidence through action.
 
-## AWS Cloud
+### AWS Cloud
 
 The technical sessions introduced a structured learning roadmap for AWS:
 
@@ -66,7 +66,7 @@ The technical sessions introduced a structured learning roadmap for AWS:
 
 LocalStack was introduced as an efficient solution for simulating AWS services on a local machine, allowing developers to learn and test cloud architectures without incurring AWS costs.
 
-## Featured Technology Projects
+### Featured Technology Projects
 
 Several innovative AI projects were presented during the event, including:
 
@@ -75,7 +75,7 @@ Several innovative AI projects were presented during the event, including:
 
 ---
 
-# 4. Knowledge Gained
+## 4. Knowledge Gained
 
 After attending the event, I gained valuable knowledge and practical insights, including:
 
@@ -87,7 +87,7 @@ After attending the event, I gained valuable knowledge and practical insights, i
 
 ---
 
-# 5. Practical Applications
+## 5. Practical Applications
 
 The knowledge gained from the event can be applied to:
 
@@ -100,13 +100,13 @@ The knowledge gained from the event can be applied to:
 
 ---
 
-# 6. Event Experience
+## 6. Event Experience
 
-## Learning from Industry Speakers
+### Learning from Industry Speakers
 
 The speakers shared practical experiences from developing AI products and deploying cloud solutions on AWS. Their presentations combined technical expertise with valuable career development advice and effective learning strategies.
 
-## Exposure to Modern Technologies
+### Exposure to Modern Technologies
 
 The event introduced participants to a wide range of modern technologies, including:
 
@@ -121,7 +121,7 @@ The event introduced participants to a wide range of modern technologies, includ
 
 These sessions demonstrated how modern AI technologies can be integrated with cloud infrastructure to build scalable and intelligent applications.
 
-## Practical Learning Experience
+### Practical Learning Experience
 
 Beyond theoretical discussions, the event featured numerous real-world case studies and demonstrations that helped participants better understand:
 
@@ -130,7 +130,7 @@ Beyond theoretical discussions, the event featured numerous real-world case stud
 - Cloud architecture design.
 - The "Learn by Doing" approach to mastering technology.
 
-## Networking Opportunities
+### Networking Opportunities
 
 The event also provided opportunities to:
 
@@ -141,7 +141,7 @@ The event also provided opportunities to:
 
 ---
 
-# 7. Lessons Learned
+## 7. Lessons Learned
 
 After attending the event, I learned several valuable lessons:
 
@@ -153,13 +153,13 @@ After attending the event, I learned several valuable lessons:
 
 ---
 
-# 8. Conclusion
+## 8. Conclusion
 
 The **First Cloud AI Journey – Agentic AI Build Week** was a highly valuable learning experience that provided practical knowledge in AWS Cloud, Agentic AI, and modern software development practices. The event not only expanded my technical knowledge but also inspired me to adopt a more proactive learning mindset through building real-world projects. It has strengthened my motivation to continue developing my skills and preparing for future opportunities in Cloud Computing and Artificial Intelligence.
 
 ---
 
-# 9. Event Photos
+## 9. Event Photos
 
 ![endpoint]( /images/4-EventsParticipated/4.3-Event3/6C7A6827.JPG )
 

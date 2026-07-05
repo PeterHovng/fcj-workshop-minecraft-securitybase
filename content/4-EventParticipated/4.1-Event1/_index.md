@@ -17,7 +17,7 @@ pre: " <b> 4.1. </b> "
 
 ---
 
-# 1. Purpose of the Event
+## 1. Purpose of the Event
 
 The AWS Meetup was organized to provide a platform for networking, knowledge sharing, and exchanging practical experience among members of the Cloud Computing community. The event brought together speakers from different technical backgrounds, covering topics such as application development, system administration, cybersecurity, DevOps, artificial intelligence, and cloud technologies on AWS.
 
@@ -25,7 +25,7 @@ The meetup not only enabled participants to stay updated with the latest technol
 
 ---
 
-# 2. Speakers
+## 2. Speakers
 
 | No. | Speaker | Topic |
 |-----|----------|-------|
@@ -38,7 +38,7 @@ The meetup not only enabled participants to stay updated with the latest technol
 
 ---
 
-# 3. Event Highlights
+## 3. Event Highlights
 
 The meetup featured a series of practical presentations focusing on modern technologies widely adopted in the IT industry.
 
@@ -55,7 +55,7 @@ Besides the presentations, participants had the opportunity to ask questions, en
 
 ---
 
-# 4. My Contribution as a Speaker
+## 4. My Contribution as a Speaker
 
 During the meetup, I participated as a **Speaker** and presented the topic:
 
@@ -63,7 +63,7 @@ During the meetup, I participated as a **Speaker** and presented the topic:
 
 My presentation focused on designing an intelligent security solution that combines AWS services with Machine Learning techniques to detect and mitigate cyber attacks targeting web applications.
 
-## Main Topics Covered
+### Main Topics Covered
 
 - An overview of common cyber attacks against web applications.
 - The role of AWS WAF in filtering and protecting web traffic.
@@ -76,7 +76,7 @@ Through this presentation, I had the opportunity to share my experience in devel
 
 ---
 
-# 5. Knowledge Gained
+## 5. Knowledge Gained
 
 By attending the presentations and technical discussions, I gained valuable knowledge in the following areas:
 
@@ -89,7 +89,7 @@ By attending the presentations and technical discussions, I gained valuable know
 
 ---
 
-# 6. Practical Applications
+## 6. Practical Applications
 
 The knowledge acquired during the meetup can be applied to:
 
@@ -102,13 +102,13 @@ The knowledge acquired during the meetup can be applied to:
 
 ---
 
-# 7. Event Experience
+## 7. Event Experience
 
-## Learning from Industry Speakers
+### Learning from Industry Speakers
 
 Each presentation was based on real-world implementation experience, enabling participants to better understand how AWS services are applied to solve practical business and technical challenges.
 
-## Experience as a Speaker
+### Experience as a Speaker
 
 Presenting at the meetup allowed me to:
 
@@ -117,7 +117,7 @@ Presenting at the meetup allowed me to:
 - Enhance my ability to answer technical questions.
 - Gain valuable insights from experienced professionals and the AWS community.
 
-## Exposure to Modern Technologies
+### Exposure to Modern Technologies
 
 The meetup introduced and discussed a variety of modern technologies, including:
 
@@ -132,7 +132,7 @@ The meetup introduced and discussed a variety of modern technologies, including:
 
 These sessions demonstrated how different technologies can be integrated to build scalable, secure, and efficient cloud solutions.
 
-## Community Networking
+### Community Networking
 
 The meetup also provided valuable networking opportunities by allowing participants to:
 
@@ -143,7 +143,7 @@ The meetup also provided valuable networking opportunities by allowing participa
 
 ---
 
-# 8. Lessons Learned
+## 8. Lessons Learned
 
 After participating in the event, I drew several important conclusions:
 
@@ -155,7 +155,7 @@ After participating in the event, I drew several important conclusions:
 
 ---
 
-# 9. Event Photos
+## 9. Event Photos
 
 ![endpoint]( /images/4-EventsParticipated/4.1-Event1/6C7A4659.JPG )
 
@@ -169,6 +169,6 @@ After participating in the event, I drew several important conclusions:
 
 ---
 
-# Conclusion
+### Conclusion
 
 The AWS Meetup was a valuable technical event that provided practical insights into AWS, Cloud Computing, DevOps, Artificial Intelligence, and Cybersecurity. As a speaker, I had the opportunity not only to share my own experience but also to learn from industry professionals and community members. The event significantly enhanced my technical knowledge, presentation skills, and professional network within the cloud computing community.

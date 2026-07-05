@@ -16,9 +16,9 @@ To address this challenge, AWS provides **Security Automations for AWS WAF**, a 
 
 ---
 
-# Key Features of the Solution
+## Key Features of the Solution
 
-## 1. AWS Managed Rules as the Foundation
+### 1. AWS Managed Rules as the Foundation
 
 AWS Managed Rule Groups provide a strong baseline security posture by automatically protecting against common web threats, including:
 
@@ -31,7 +31,7 @@ This significantly reduces the operational overhead of creating and maintaining 
 
 ---
 
-## 2. Built-in SQL Injection and XSS Protection
+### 2. Built-in SQL Injection and XSS Protection
 
 The solution includes preconfigured rules that inspect:
 
@@ -48,7 +48,7 @@ before they ever reach your application.
 
 ---
 
-## 3. HTTP Flood Protection
+### 3. HTTP Flood Protection
 
 The solution automatically detects IP addresses generating abnormal request volumes, helping mitigate attacks such as:
 
@@ -58,7 +58,7 @@ The solution automatically detects IP addresses generating abnormal request volu
 
 ---
 
-## 4. Scanner & Probe Protection
+### 4. Scanner & Probe Protection
 
 Logs collected from services including:
 
@@ -77,7 +77,7 @@ Suspicious IP addresses can then be **automatically added to a WAF block list**.
 
 ---
 
-## 5. Bad Bot Detection
+### 5. Bad Bot Detection
 
 The solution combines:
 
@@ -88,13 +88,13 @@ to identify malicious bots and dynamically update WAF block lists.
 
 ---
 
-## 6. Threat Intelligence Integration
+### 6. Threat Intelligence Integration
 
 The architecture can ingest IP reputation feeds and threat intelligence sources to proactively block known malicious IP addresses before they can launch attacks.
 
 ---
 
-## 7. Automation with AWS Lambda and Athena
+### 7. Automation with AWS Lambda and Athena
 
 Rather than relying solely on static rules, the solution leverages:
 
@@ -112,7 +112,7 @@ This transforms AWS WAF from a static filtering engine into an adaptive security
 
 ---
 
-# Conclusion
+## Conclusion
 
 One of the most interesting aspects of **Security Automations for AWS WAF** is the mindset it promotes:
 
@@ -129,7 +129,7 @@ In other words, WAF should become an **active security control**, not just a pas
 
 ---
 
-# What's Next?
+## What's Next?
 
 In my next blog, I'll explore how to address some of the remaining gaps in AWS WAF.
 
@@ -139,13 +139,13 @@ From my perspective, this topic is likely to generate more discussion than my pr
 
 ---
 
-# Architecture
+## Architecture
 
 ![Architecture Diagram](/images/3-BlogsPosted/3.1-Blog1/ArchitectureBlog1.png)
 
 ---
 
-# Reference
+## Reference
 
 **AWS Security Automations for AWS WAF – Architecture Overview**
 

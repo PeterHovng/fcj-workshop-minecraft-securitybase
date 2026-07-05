@@ -17,7 +17,7 @@ pre: " <b> 4.1. </b> "
 
 ---
 
-# 1. Mục đích của sự kiện
+## 1. Mục đích của sự kiện
 
 AWS Meetup được tổ chức nhằm tạo môi trường giao lưu, chia sẻ kiến thức và kinh nghiệm thực tế giữa các thành viên trong cộng đồng yêu thích điện toán đám mây (Cloud Computing). Chương trình quy tụ các diễn giả đến từ nhiều lĩnh vực khác nhau, mang đến các chủ đề về phát triển ứng dụng, quản trị hệ thống, bảo mật, DevOps, trí tuệ nhân tạo và các công nghệ hiện đại trên nền tảng AWS.
 
@@ -25,7 +25,7 @@ AWS Meetup được tổ chức nhằm tạo môi trường giao lưu, chia sẻ
 
 ---
 
-# 2. Danh sách diễn giả
+## 2. Danh sách diễn giả
 
 | STT | Diễn giả | Chủ đề |
 |-----|----------|---------|
@@ -38,7 +38,7 @@ AWS Meetup được tổ chức nhằm tạo môi trường giao lưu, chia sẻ
 
 ---
 
-# 3. Nội dung nổi bật
+## 3. Nội dung nổi bật
 
 Sự kiện mang đến nhiều bài chia sẻ thực tiễn xoay quanh các công nghệ đang được ứng dụng rộng rãi trong doanh nghiệp.
 
@@ -55,7 +55,7 @@ Bên cạnh phần trình bày của các diễn giả, người tham dự còn 
 
 ---
 
-# 4. Nội dung tham gia với vai trò diễn giả
+## 4. Nội dung tham gia với vai trò diễn giả
 
 Trong sự kiện, em tham gia với vai trò **Speaker** và trình bày chủ đề:
 
@@ -63,7 +63,7 @@ Trong sự kiện, em tham gia với vai trò **Speaker** và trình bày chủ 
 
 Bài trình bày tập trung vào việc xây dựng một giải pháp phát hiện và giảm thiểu các cuộc tấn công mạng bằng cách kết hợp các dịch vụ AWS với mô hình Machine Learning.
 
-## Nội dung chính
+### Nội dung chính
 
 - Tổng quan về các hình thức tấn công phổ biến đối với ứng dụng Web.
 - Vai trò của AWS WAF trong việc lọc và bảo vệ lưu lượng truy cập.
@@ -76,7 +76,7 @@ Thông qua phần chia sẻ, em có cơ hội trao đổi với cộng đồng v
 
 ---
 
-# 5. Những gì học được
+## 5. Những gì học được
 
 Thông qua các bài trình bày tại sự kiện, em học được:
 
@@ -89,7 +89,7 @@ Thông qua các bài trình bày tại sự kiện, em học được:
 
 ---
 
-# 6. Ứng dụng vào công việc
+## 6. Ứng dụng vào công việc
 
 Những kiến thức thu nhận được từ sự kiện có thể áp dụng vào:
 
@@ -102,13 +102,13 @@ Những kiến thức thu nhận được từ sự kiện có thể áp dụng 
 
 ---
 
-# 7. Trải nghiệm trong sự kiện
+## 7. Trải nghiệm trong sự kiện
 
-## Học hỏi từ các diễn giả
+### Học hỏi từ các diễn giả
 
 Các bài chia sẻ đều xuất phát từ kinh nghiệm triển khai thực tế, giúp người tham dự hiểu rõ hơn cách ứng dụng các dịch vụ AWS vào từng bài toán cụ thể.
 
-## Trải nghiệm với vai trò diễn giả
+### Trải nghiệm với vai trò diễn giả
 
 Việc trực tiếp trình bày trước cộng đồng giúp em:
 
@@ -117,7 +117,7 @@ Việc trực tiếp trình bày trước cộng đồng giúp em:
 - Nâng cao khả năng trả lời các câu hỏi kỹ thuật.
 - Tiếp nhận nhiều góc nhìn mới từ các chuyên gia và cộng đồng.
 
-## Tiếp cận công nghệ hiện đại
+### Tiếp cận công nghệ hiện đại
 
 Sự kiện giới thiệu và thảo luận về nhiều công nghệ hiện đại như:
 
@@ -132,7 +132,7 @@ Sự kiện giới thiệu và thảo luận về nhiều công nghệ hiện đ
 
 Qua đó, em hiểu rõ hơn cách kết hợp nhiều công nghệ để xây dựng các hệ thống có khả năng mở rộng, bảo mật và hiệu quả.
 
-## Kết nối cộng đồng
+### Kết nối cộng đồng
 
 AWS Meetup là cơ hội để:
 
@@ -143,7 +143,7 @@ AWS Meetup là cơ hội để:
 
 ---
 
-# 8. Bài học rút ra
+## 8. Bài học rút ra
 
 Sau khi tham gia sự kiện, em rút ra một số bài học quan trọng:
 
@@ -155,7 +155,7 @@ Sau khi tham gia sự kiện, em rút ra một số bài học quan trọng:
 
 ---
 
-# 9. Một số hình ảnh khi tham gia sự kiện
+## 9. Một số hình ảnh khi tham gia sự kiện
 
 ![endpoint]( /images/4-EventsParticipated/4.1-Event1/6C7A4659.JPG )
 
@@ -169,6 +169,6 @@ Sau khi tham gia sự kiện, em rút ra một số bài học quan trọng:
 
 ---
 
-## Kết luận
+### Kết luận
 
 AWS Meetup là một sự kiện chuyên môn có giá trị, mang lại nhiều kiến thức thực tiễn về các công nghệ AWS, Cloud Computing, DevOps, AI và Cyber Security. Với vai trò là một diễn giả, em không chỉ có cơ hội chia sẻ kinh nghiệm của bản thân mà còn học hỏi được nhiều kiến thức bổ ích từ các chuyên gia và cộng đồng. Đây là một trải nghiệm ý nghĩa, góp phần nâng cao chuyên môn, kỹ năng trình bày cũng như mở rộng mạng lưới kết nối trong lĩnh vực công nghệ.
