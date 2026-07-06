@@ -1,31 +1,34 @@
 ---
 title: "Week 5 Worklog"
-date: 2026-05-15
+date: 2026-05-18
 weight: 5
 chapter: false
 pre: " <b> 1.5. </b> "
 ---
 
-### Week 5 Objectives
+### Week 5 Objectives:
 
-* Build a complete AWS VPC environment.
-* Learn subnetting, routing, internet gateway, NAT gateway, security groups, and NACLs.
-* Practice connectivity verification with Reachability Analyzer, SSM Session Manager, and CloudWatch.
+* Understand the deployment process of Amazon EC2 instances.
+* Learn the core EC2 components, including AMIs, Instance Types, EBS, and Security Groups.
+* Practice administering EC2 using AWS Systems Manager Session Manager.
+* Become familiar with essential Linux commands required for server deployment and administration.
 
-### Tasks to be carried out this week:
+### Tasks to be completed this week:
 
-| Day | Task | Start Date | Completion Date | Reference Material |
-| --- | --- | ---------- | --------------- | ----------------------------------------- |
-| 2 | - Study VPC concepts: subnets, route tables, IGW, NAT<br>- Learn Security Groups and NACLs | 15/05/2026 | 15/05/2026 | AWS VPC documentation |
-| 3 | - Create a custom VPC<br>- Create public and private subnets<br>- Attach an Internet Gateway | 16/05/2026 | 16/05/2026 | AWS VPC console |
-| 4 | - Configure route tables for public and private traffic<br>- Create and test a NAT Gateway | 17/05/2026 | 17/05/2026 | AWS networking guides |
-| 5 | - Create Security Groups and NACLs<br>- Enable VPC Flow Logs<br>- Run Reachability Analyzer | 18/05/2026 | 19/05/2026 | AWS VPC security docs |
-| 6 | - Launch an EC2 instance in the VPC<br>- Connect using Session Manager<br>- Review CloudWatch metrics and alarms | 19/05/2026 | 19/05/2026 | AWS Systems Manager |
+| Day | Tasks | Start Date | Completion Date | References |
+| --- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
+| Mon | - Learn Amazon EC2 and its components: AMIs, Instance Types, EBS, and Key Pairs<br>- Compare common EC2 instance families | 18/05/2026 | 18/05/2026 | https://www.youtube.com/@AWSStudyGroup https://cloudjourney.awsstudygroup.com/|
+| Tue | - Launch an Ubuntu EC2 instance<br>- Configure an appropriate Security Group<br>- Explore the EC2 Management Console | 19/05/2026 | 19/05/2026 | https://www.youtube.com/@AWSStudyGroup https://cloudjourney.awsstudygroup.com/|
+| Wed | - Learn IAM Roles for EC2<br>- Attach the AmazonSSMManagedInstanceCore policy<br>- Connect to EC2 using AWS Systems Manager Session Manager | 20/05/2026 | 20/05/2026 | https://www.youtube.com/@AWSStudyGroup https://cloudjourney.awsstudygroup.com/ |
+| Thu | - Practice essential Linux commands on Ubuntu Server<br>- Manage files, directories, users, and permissions<br>- Update the operating system using APT | 21/05/2026 | 21/05/2026 | https://www.youtube.com/@AWSStudyGroup https://cloudjourney.awsstudygroup.com/ |
+| Fri | - Summarize the EC2 deployment and administration process<br>- Complete Hands-on Labs related to Amazon EC2 and Systems Manager | 22/05/2026 | 22/05/2026 | https://www.youtube.com/@AWSStudyGroup https://cloudjourney.awsstudygroup.com/|
+| Sat | - Review all EC2 and Linux Administration topics<br>- Complete remaining Hands-on Labs and update learning notes | 23/05/2026 | 23/05/2026 | https://www.youtube.com/@AWSStudyGroup https://cloudjourney.awsstudygroup.com/ |
+| Sun | - Continue self-learning Cyber Security with a Red Team focus<br>- Study Linux Privilege Escalation and SSH Security techniques<br>- Prepare Monitoring & Security knowledge for the following week | 24/05/2026 | 24/05/2026 | Personal Notes |
 
-### Week 5 Achievements
+### Week 5 Achievements:
 
-* Built a functional VPC with public and private subnets.
-* Configured routing, NAT, Security Groups, and NACLs.
-* Verified network paths with Reachability Analyzer.
-* Connected to EC2 without SSH using Session Manager.
-* Set up basic CloudWatch monitoring for network visibility.
+* Gained a solid understanding of deploying virtual servers using Amazon EC2.
+* Successfully differentiated the roles of AMIs, Instance Types, EBS, and Security Groups.
+* Practiced managing EC2 instances through AWS Systems Manager Session Manager without using SSH key pairs.
+* Learned essential Linux administration skills required for cloud server deployment and operations.
+* Completed the Hands-on Labs for Amazon EC2 and established the foundation for the Monitoring and Security topics in the following week.

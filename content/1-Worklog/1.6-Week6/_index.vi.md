@@ -1,6 +1,6 @@
 ---
 title: "Worklog Tuần 6"
-date: 2026-05-22
+date: 2026-05-25
 weight: 6
 chapter: false
 pre: " <b> 1.6. </b> "
@@ -8,24 +8,27 @@ pre: " <b> 1.6. </b> "
 
 ### Mục tiêu tuần 6:
 
-* Thành thạo vòng đời EC2, EBS và AMI.
-* Triển khai cả Linux và Windows, thực hành phục hồi truy cập.
-* Hiểu các chính sách IAM giúp kiểm soát chi phí EC2.
+* Tìm hiểu các dịch vụ giám sát và bảo mật trên AWS.
+* Làm quen với Amazon CloudWatch, AWS CloudTrail và Amazon GuardDuty.
+* Chuẩn bị kiến thức và kiến trúc cho project **Minecraft Security Based on AWS**.
+* Tham gia sự kiện **First Cloud AI Journey – Agentic AI Build Week** để cập nhật xu hướng AI và Cloud.
 
 ### Các công việc cần triển khai trong tuần này:
 
 | Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
 | --- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2 | - Tìm hiểu instance types và EBS<br>- So sánh loại volume phù hợp từng workload | 22/05/2026 | 22/05/2026 | Tài liệu AWS EC2 |
-| 3 | - Launch EC2 Linux<br>- Launch EC2 Windows<br>- So sánh bootstrap options | 23/05/2026 | 23/05/2026 | AWS EC2 console |
-| 4 | - Thay đổi instance type<br>- Tạo EBS snapshot<br>- Tạo custom AMI | 24/05/2026 | 24/05/2026 | Tài liệu EC2 lifecycle |
-| 5 | - Thực hành phục hồi quyền Linux và Windows<br>- Cấu hình phục hồi RDP<br>- Tìm hiểu EBS Archive | 25/05/2026 | 26/05/2026 | AWS recovery guides |
-| 6 | - Deploy LAMP trên Amazon Linux<br>- Deploy Node.js application<br>- Xem lại các control chi phí EC2 qua IAM | 26/05/2026 | 26/05/2026 | AWS deployment tutorials |
+| 2 | - Tìm hiểu Amazon CloudWatch<br>- Làm quen với Metrics, Logs và Alarms<br>- Thực hành tạo CloudWatch Alarm cơ bản | 25/05/2026 | 25/05/2026 | https://www.youtube.com/@AWSStudyGroup |
+| 3 | - Tìm hiểu AWS CloudTrail<br>- Quan sát lịch sử các API Calls trong tài khoản AWS<br>- Hiểu vai trò của CloudTrail trong Audit và Security | 26/05/2026 | 26/05/2026 | https://cloudjourney.awsstudygroup.com/ |
+| 4 | - Tìm hiểu Amazon GuardDuty và các loại Security Findings<br>- Làm quen với EventBridge, Lambda và Amazon SNS trong mô hình cảnh báo bảo mật | 27/05/2026 | 27/05/2026 | https://cloudjourney.awsstudygroup.com/ |
+| 5 | - Phân tích yêu cầu project<br>- Thiết kế kiến trúc **Minecraft Security Based on AWS**<br>- Xác định các dịch vụ AWS sẽ sử dụng trong project | 28/05/2026 | 28/05/2026 | Personal Project Notes |
+| 6 | - Hoàn thiện sơ đồ kiến trúc và kế hoạch triển khai project<br>- Chuẩn bị môi trường để bắt đầu project từ ngày 01/06/2026 | 29/05/2026 | 29/05/2026 | AWS Architecture Center |
+| 7 | - Tham dự sự kiện **First Cloud AI Journey – Agentic AI Build Week** tại Thành phố Hồ Chí Minh<br>- Tìm hiểu các xu hướng Agentic AI và ứng dụng AI trên nền tảng AWS<br>- Trao đổi kinh nghiệm với mentor và các thành viên trong chương trình | 30/05/2026 | 30/05/2026 | First Cloud AI Journey – Agentic AI Build Week |
+| CN | - Tổng hợp kiến thức đã học trong 6 tuần đầu<br>- Hoàn thiện ghi chú và rà soát kế hoạch triển khai project<br>- Chuẩn bị bắt đầu giai đoạn thực hiện project | 31/05/2026 | 31/05/2026 | Personal Notes |
 
 ### Kết quả đạt được tuần 6:
 
-* Quản lý thành công EC2 Linux và Windows.
-* Tạo snapshot, AMI và sử dụng lại tài nguyên đã chuẩn bị.
-* Thực hành thay đổi loại instance và phục hồi quyền truy cập.
-* Triển khai ứng dụng web trên Linux.
-* Hiểu các chính sách IAM giới hạn instance family, type và EBS.
+* Hiểu được vai trò của Amazon CloudWatch, AWS CloudTrail và Amazon GuardDuty trong việc giám sát và bảo vệ hệ thống trên AWS.
+* Hoàn thành việc nghiên cứu các dịch vụ sẽ được sử dụng trong project Minecraft Security Based on AWS.
+* Xây dựng sơ đồ kiến trúc và kế hoạch triển khai project, sẵn sàng bắt đầu từ ngày **01/06/2026**.
+* Tham gia sự kiện **First Cloud AI Journey – Agentic AI Build Week**, cập nhật các xu hướng mới về Agentic AI và điện toán đám mây.
+* Hoàn thiện giai đoạn chuẩn bị và sẵn sàng bước vào quá trình triển khai project.

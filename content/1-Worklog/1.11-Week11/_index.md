@@ -1,31 +1,34 @@
 ---
 title: "Week 11 Worklog"
-date: 2026-06-26
+date: 2026-06-29
 weight: 11
 chapter: false
 pre: " <b> 1.11. </b> "
 ---
 
-### Week 11 Objectives
+### Week 11 Objectives:
 
-* Design the AWS architecture for the graduation project: AWS + Minecraft + Cyber Security.
-* Deploy the foundational infrastructure: VPC, EC2, GuardDuty, Lambda, Backup, NLB, and Global Accelerator.
-* Deliver a runnable Minecraft server with basic security monitoring.
+* Complete the **Minecraft Security Based on AWS** project.
+* Perform end-to-end testing of the architecture and security features.
+* Finalize the technical documentation and prepare the internship report.
+* Optimize AWS costs and clean up unnecessary resources.
 
-### Tasks to be carried out this week:
+### Tasks to be completed this week:
 
-| Day | Task | Start Date | Completion Date | Reference Material |
-| --- | --- | ---------- | --------------- | ----------------------------------------- |
-| 2 | - Review project goals and cost estimate<br>- Draw the architecture diagram<br>- Define required AWS services | 26/06/2026 | 26/06/2026 | Architecture design notes |
-| 3 | - Create VPC `Minecraft-Security-Lab`<br>- Create subnets and route tables<br>- Create security groups that allow only port 25565 | 27/06/2026 | 27/06/2026 | AWS VPC documentation |
-| 4 | - Launch an Ubuntu EC2 instance<br>- Install Minecraft server via Session Manager<br>- Run Minecraft as the `minecraft` user | 28/06/2026 | 28/06/2026 | AWS Systems Manager docs |
-| 5 | - Enable GuardDuty<br>- Review findings, settings, and alert concepts<br>- Document threat detection logic | 29/06/2026 | 30/06/2026 | AWS GuardDuty guides |
-| 6 | - Create Lambda `Minecraft-Automated-Block-IP`<br>- Grant EC2 permissions<br>- Create an EventBridge rule from GuardDuty to Lambda | 30/06/2026 | 30/06/2026 | AWS Lambda and EventBridge docs |
+| Day | Tasks | Start Date | Completion Date | References |
+| --- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
+| Mon | - Perform end-to-end connectivity testing: Player → Global Accelerator → Network Load Balancer → EC2 Minecraft Server<br>- Verify overall system availability | 29/06/2026 | 29/06/2026 | Personal Project Notes |
+| Tue | - Test GuardDuty Sample Findings<br>- Verify EventBridge triggers Lambda successfully<br>- Verify Amazon SNS email notifications<br>- Complete the project implementation | 30/06/2026 | 30/06/2026 | AWS GuardDuty Documentation |
+| Wed | - Finalize the deployment documentation<br>- Update the architecture diagram and AWS service descriptions | 01/07/2026 | 01/07/2026 | Personal Project Documentation |
+| Thu | - Write deployment and operation guides<br>- Document backup, recovery, and incident response procedures | 02/07/2026 | 02/07/2026 | AWS Well-Architected Framework |
+| Fri | - Review the AWS Billing Dashboard<br>- Stop or remove unused AWS resources<br>- Evaluate the actual project cost | 03/07/2026 | 03/07/2026 | AWS Billing & Cost Management |
+| Sat | - Review the complete project report and documentation<br>- Update the worklog and project repository<br>- Prepare presentation materials | 04/07/2026 | 04/07/2026 | Personal Notes |
+| Sun | - Summarize the project outcomes<br>- Evaluate achievements and identify future improvements | 05/07/2026 | 05/07/2026 | Personal Notes |
 
-### Week 11 Achievements
+### Week 11 Achievements:
 
-* Designed a clear AWS architecture for the graduation project.
-* Deployed VPC, EC2, and Minecraft server with security-first settings.
-* Enabled GuardDuty and connected it to an automation Lambda function.
-* Created an hourly backup plan for EC2.
-* Made the Minecraft server reachable via Global Accelerator.
+* Successfully completed the **Minecraft Security Based on AWS** project on **30 June 2026**.
+* Successfully validated the complete system workflow and the automated security response mechanism.
+* Finalized the technical documentation, architecture diagrams, and deployment guides.
+* Evaluated AWS deployment costs and cleaned up unnecessary cloud resources.
+* Prepared all required materials for the final internship presentation and report.

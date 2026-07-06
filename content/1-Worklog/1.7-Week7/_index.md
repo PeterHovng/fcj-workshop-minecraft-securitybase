@@ -1,31 +1,34 @@
 ---
 title: "Week 7 Worklog"
-date: 2026-05-29
+date: 2026-06-01
 weight: 7
 chapter: false
 pre: " <b> 1.7. </b> "
 ---
 
-### Week 7 Objectives
+### Week 7 Objectives:
 
-* Understand IAM roles for EC2 and why they are safer than access keys.
-* Practice instance profile assignment and temporary credentials.
-* Access AWS resources from EC2 without hardcoded credentials.
+* Begin the implementation of the **Minecraft Security Based on AWS** project.
+* Build the AWS network infrastructure and deploy an Amazon EC2 instance for the Minecraft Server.
+* Establish a secure administration environment using AWS Systems Manager Session Manager.
+* Participate in the **Mini Meetup – First Cloud AI Journey** as a **Speaker**.
 
-### Tasks to be carried out this week:
+### Tasks to be completed this week:
 
-| Day | Task | Start Date | Completion Date | Reference Material |
-| --- | --- | ---------- | --------------- | ----------------------------------------- |
-| 2 | - Review risks of long-term access keys<br>- Compare IAM user access keys vs instance roles | 29/05/2026 | 29/05/2026 | AWS IAM documentation |
-| 3 | - Create an IAM role for EC2<br>- Attach S3 access permissions<br>- Review trust policy | 30/05/2026 | 30/05/2026 | AWS IAM console |
-| 4 | - Attach the role to an EC2 instance<br>- Verify temporary credentials metadata | 31/05/2026 | 31/05/2026 | EC2 instance metadata docs |
-| 5 | - Access S3 from EC2 using the role<br>- Test read/write operations<br>- Verify no static keys exist in code | 01/06/2026 | 02/06/2026 | AWS SDK examples |
-| 6 | - Review cleanup steps for roles and instance profiles<br>- Document role best practices | 02/06/2026 | 02/06/2026 | AWS IAM best practices |
+| Day | Tasks | Start Date | Completion Date | References |
+| --- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
+| Mon | - Kick off the Minecraft Security Based on AWS project<br>- Design the overall system architecture<br>- Prepare the AWS environment for deployment | 01/06/2026 | 01/06/2026 | Personal Project Notes |
+| Tue | - Create an Amazon VPC and Public Subnet<br>- Configure the Internet Gateway and Route Table<br>- Configure the Security Group for the Minecraft Server | 02/06/2026 | 02/06/2026 | https://www.youtube.com/@AWSStudyGroup https://cloudjourney.awsstudygroup.com/ |
+| Wed | - Launch an Ubuntu EC2 instance<br>- Attach an IAM Role with AmazonSSMManagedInstanceCore<br>- Connect to EC2 using AWS Systems Manager Session Manager | 03/06/2026 | 03/06/2026 | https://www.youtube.com/@AWSStudyGroup https://cloudjourney.awsstudygroup.com/ |
+| Thu | - Install Java and PaperMC Minecraft Server on EC2<br>- Configure the EULA and verify that the server starts successfully | 04/06/2026 | 04/06/2026 | https://www.youtube.com/@AWSStudyGroup https://cloudjourney.awsstudygroup.com/ |
+| Fri | - Create a dedicated `minecraft` service account<br>- Configure the Minecraft Server to run without root privileges<br>- Test client connectivity | 05/06/2026 | 05/06/2026 | Personal Project Notes |
+| Sat | - Attend the **Mini Meetup – First Cloud AI Journey** as a **Speaker**<br>- Share AWS learning and hands-on experiences with program participants<br>- Exchange technical knowledge with mentors and the AWS community | 06/06/2026 | 06/06/2026 | Mini Meetup – First Cloud AI Journey |
+| Sun | - Review the first week of project implementation<br>- Update deployment documentation and technical notes<br>- Prepare the security implementation plan for the following week | 07/06/2026 | 07/06/2026 | Personal Notes |
 
-### Week 7 Achievements
+### Week 7 Achievements:
 
-* Learned why IAM roles are preferred over long-term access keys for EC2.
-* Created an IAM role and attached it to an EC2 instance.
-* Successfully accessed AWS resources from EC2 without hardcoded credentials.
-* Verified temporary credential behavior using instance metadata.
-* Documented role-based access best practices.
+* Successfully completed the initial implementation phase of the **Minecraft Security Based on AWS** project.
+* Built the AWS networking environment and deployed an Amazon EC2 instance for the Minecraft Server.
+* Securely managed the EC2 instance using AWS Systems Manager Session Manager without relying on SSH key pairs.
+* Successfully installed and launched the PaperMC Minecraft Server on AWS.
+* Participated in the **Mini Meetup – First Cloud AI Journey** as a **Speaker**, sharing AWS learning experiences and engaging with the AWS community.

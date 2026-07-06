@@ -1,6 +1,6 @@
 ---
 title: "Worklog Tuần 12"
-date: 2026-07-03
+date: 2026-07-06
 weight: 12
 chapter: false
 pre: " <b> 1.12. </b> "
@@ -8,25 +8,28 @@ pre: " <b> 1.12. </b> "
 
 ### Mục tiêu tuần 12:
 
-* Hoàn thiện tự động hóa cảnh báo và phản ứng bảo mật cho dự án tốt nghiệp.
-* Hoàn thành startup và shutdown script an toàn cho Minecraft.
-* Chạy demo SOAR, dọn dẹp tài nguyên AWS và hoàn thiện tài liệu báo cáo.
+* Hoàn thiện project **Minecraft Security Based on AWS**.
+* Hoàn thiện Workshop Project theo yêu cầu của chương trình AWS First Cloud Journey để nộp cho công ty.
+* Hoàn thiện báo cáo, tài liệu kỹ thuật và hướng dẫn triển khai.
+* Tổng kết quá trình thực tập và đánh giá kết quả đạt được.
 
 ### Các công việc cần triển khai trong tuần này:
 
 | Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
 | --- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2 | - Tạo SNS topic `Minecraft-Attack-Alerts`<br>- Xác thực email subscription<br>- Cấp quyền Lambda publish SNS | 03/07/2026 | 03/07/2026 | Tài liệu AWS SNS |
-| 3 | - Cập nhật ARN SNS vào code Lambda<br>- Deploy lại hàm Lambda<br>- Kiểm tra định dạng thông báo gửi đi | 04/07/2026 | 04/07/2026 | Ghi chú deploy Lambda |
-| 4 | - Viết startup script an toàn cho Minecraft<br>- Kiểm tra `screen -ls` và log<br>- Test hành vi restart | 05/07/2026 | 05/07/2026 | Ghi chú vận hành Minecraft |
-| 5 | - Viết shutdown script an toàn<br>- Kiểm tra lưu world<br>- Ghi nhận các bước dừng an toàn | 06/07/2026 | 07/07/2026 | Linux service best practices |
-| 6 | - Chạy GuardDuty sample findings<br>- Kiểm tra CloudWatch Logs và email cảnh báo<br>- Thực hiện dọn dẹp theo đúng thứ tự<br>- Kiểm tra AWS Billing Dashboard | 07/07/2026 | 10/07/2026 | Project cleanup checklist |
+| 2 | - Rà soát toàn bộ project Minecraft Security Based on AWS<br>- Kiểm tra các dịch vụ AWS đã triển khai<br>- Khắc phục các lỗi còn tồn tại | 06/07/2026 | 06/07/2026 | Personal Project Notes |
+| 3 | - Hoàn thiện Workshop Project theo yêu cầu của chương trình AWS First Cloud Journey<br>- Chuẩn bị tài liệu, mã nguồn và hình ảnh minh họa để nộp cho công ty | 07/07/2026 | 07/07/2026 | AWS First Cloud Journey Guidelines |
+| 4 | - Hoàn thiện báo cáo thực tập và tài liệu kỹ thuật<br>- Cập nhật sơ đồ kiến trúc, Worklog và tài liệu Markdown song ngữ | 08/07/2026 | 08/07/2026 | Personal Documentation |
+| 5 | - Kiểm tra lần cuối toàn bộ hệ thống<br>- Dọn dẹp các tài nguyên AWS không còn sử dụng<br>- Kiểm tra AWS Billing Dashboard để đảm bảo không phát sinh chi phí ngoài dự kiến | 09/07/2026 | 09/07/2026 | AWS Billing & Cost Management |
+| 6 | - Chuẩn bị slide và nội dung trình bày kết quả thực tập<br>- Tổng hợp những kiến thức, kỹ năng và kinh nghiệm đã đạt được trong suốt chương trình | 10/07/2026 | 10/07/2026 | Personal Notes |
+| 7 | - Hoàn thiện hồ sơ thực tập<br>- Kiểm tra lại toàn bộ tài liệu trước khi nộp<br>- Chuẩn bị cho buổi tổng kết chương trình | 11/07/2026 | 11/07/2026 | Internship Documentation |
+| CN | - Tổng kết chương trình thực tập AWS First Cloud Journey<br>- Đánh giá kết quả đạt được, những bài học kinh nghiệm và định hướng phát triển trong tương lai | 12/07/2026 | 12/07/2026 | Personal Reflection |
 
 ### Kết quả đạt được tuần 12:
 
-* Hoàn thành luồng cảnh báo: GuardDuty finding, Lambda tự động hóa và SNS email notification.
-* Kiểm tra startup và shutdown script cho Minecraft server.
-* Demo thành công chu trình SOAR: phát hiện tấn công, chặn IP và gửi cảnh báo.
-* Dọn dẹp tài nguyên AWS theo đúng thứ tự dependency.
-* Xác nhận không còn chi phí bất ngờ trên AWS Billing.
-* Hoàn thiện tài liệu Markdown song ngữ và báo cáo cuối kỳ.
+* Hoàn thiện project **Minecraft Security Based on AWS** và xác nhận hệ thống hoạt động ổn định.
+* Hoàn thành **Workshop Project** theo yêu cầu của chương trình **AWS First Cloud Journey** và nộp đầy đủ tài liệu cho công ty.
+* Hoàn thiện báo cáo thực tập, Worklog, tài liệu kỹ thuật và hướng dẫn triển khai bằng tiếng Việt và tiếng Anh.
+* Dọn dẹp tài nguyên AWS, kiểm tra chi phí sử dụng và đảm bảo không phát sinh chi phí ngoài dự kiến.
+* Tổng kết quá trình thực tập, đánh giá những kiến thức và kỹ năng đạt được về AWS Cloud, DevSecOps và Cyber Security.
+* Hoàn thành chương trình thực tập **AWS First Cloud Journey** và sẵn sàng áp dụng những kiến thức đã học vào các dự án thực tế.

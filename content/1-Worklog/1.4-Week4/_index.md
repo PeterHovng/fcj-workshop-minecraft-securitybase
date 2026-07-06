@@ -1,30 +1,34 @@
 ---
 title: "Week 4 Worklog"
-date: 2026-05-08
+date: 2026-05-11
 weight: 4
 chapter: false
 pre: " <b> 1.4. </b> "
 ---
 
-### Week 4 Objectives
+### Week 4 Objectives:
 
-* Learn IAM fundamentals: users, groups, policies, and access boundaries.
-* Practice least-privilege access design.
-* Separate root access from day-to-day administration.
+* Understand the core components of AWS Networking.
+* Learn how to build a private network using Amazon VPC.
+* Differentiate Public Subnets and Private Subnets.
+* Practice configuring Security Groups and Network ACLs to control network traffic.
 
-### Tasks to be carried out this week:
+### Tasks to be completed this week:
 
-| Day | Task | Start Date | Completion Date | Reference Material |
-| --- | --- | ---------- | --------------- | ----------------------------------------- |
-| 2 | - Review IAM concepts: users, groups, roles, policies<br>- Study managed policy vs inline policy | 08/05/2026 | 08/05/2026 | AWS IAM documentation |
-| 3 | - Create an admin group<br>- Attach appropriate policies<br>- Create an admin user | 09/05/2026 | 09/05/2026 | AWS IAM console |
-| 4 | - Log in using the new admin user<br>- Verify console and CLI access | 10/05/2026 | 10/05/2026 | AWS sign-in page |
-| 5 | - Create an operations user<br>- Create a role-switching policy<br>- Test role assumption | 11/05/2026 | 12/05/2026 | AWS IAM roles guide |
-| 6 | - Review unused users and permissions<br>- Document IAM cleanup steps | 12/05/2026 | 12/05/2026 | AWS IAM best practices |
+| Day | Tasks | Start Date | Completion Date | References |
+| --- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
+| Mon | - Learn Amazon VPC and the role of a Virtual Private Cloud<br>- Understand CIDR blocks and IP addressing in AWS | 11/05/2026 | 11/05/2026 | https://www.youtube.com/@AWSStudyGroup https://cloudjourney.awsstudygroup.com/ |
+| Tue | - Learn Public and Private Subnets<br>- Differentiate Internet Gateway and NAT Gateway<br>- Draw a basic AWS network architecture diagram | 12/05/2026 | 12/05/2026 | https://www.youtube.com/@AWSStudyGroup https://cloudjourney.awsstudygroup.com/ |
+| Wed | - Study Route Tables and routing within a VPC<br>- Practice configuring a Route Table for a Public Subnet | 13/05/2026 | 13/05/2026 | https://www.youtube.com/@AWSStudyGroup https://cloudjourney.awsstudygroup.com/ |
+| Thu | - Learn Security Groups and Network ACLs<br>- Compare both network access control mechanisms<br>- Practice configuring inbound and outbound rules | 14/05/2026 | 14/05/2026 | https://www.youtube.com/@AWSStudyGroup https://cloudjourney.awsstudygroup.com/ |
+| Fri | - Summarize AWS Networking concepts<br>- Complete Hands-on Labs related to VPC and Security Groups | 15/05/2026 | 15/05/2026 | https://www.youtube.com/@AWSStudyGroup https://cloudjourney.awsstudygroup.com/ |
+| Sat | - Review all Networking topics covered during the week<br>- Complete remaining Hands-on Labs and update learning notes | 16/05/2026 | 16/05/2026 | https://www.youtube.com/@AWSStudyGroup https://cloudjourney.awsstudygroup.com/ |
+| Sun | - Continue self-learning Cyber Security with a Red Team focus<br>- Study Network Scanning, Port Scanning, and Enumeration techniques<br>- Relate these concepts to securing cloud environments | 17/05/2026 | 17/05/2026 | Personal Notes |
 
-### Week 4 Achievements
+### Week 4 Achievements:
 
-* Created IAM groups and users for administrative and operational use.
-* Applied least-privilege policies for each identity.
-* Practiced switching roles and verifying access boundaries.
-* Documented an IAM governance checklist.
+* Developed a solid understanding of AWS networking fundamentals using Amazon VPC.
+* Successfully differentiated Public Subnets, Private Subnets, Internet Gateway, and NAT Gateway.
+* Understood the routing mechanism through Route Tables within a VPC.
+* Learned the differences between Security Groups and Network ACLs for traffic control.
+* Completed AWS Networking Hands-on Labs and established the networking foundation required for Amazon EC2 deployment in the following week.

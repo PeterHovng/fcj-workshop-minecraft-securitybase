@@ -6,363 +6,445 @@ chapter: false
 pre: " <b> 2. </b> "
 ---
 
-## Hệ thống bảo mật máy chủ Minecraft trên AWS
-### Phát hiện xâm nhập và tự động ứng phó bằng các dịch vụ AWS
+# Minecraft Security Based on AWS
+## Giải pháp bảo mật, giám sát và tự động phản ứng cho Minecraft Server trên AWS
+
+### 1. Tóm tắt điều hành
+
+**Minecraft Security Based on AWS** là một dự án triển khai máy chủ Minecraft trên nền tảng Amazon Web Services (AWS), kết hợp các lớp bảo mật mạng, giám sát mối đe dọa và tự động phản ứng sự cố nhằm biến một game server thông thường thành một hệ thống có khả năng phòng thủ chủ động.
+
+Dự án tập trung vào việc bảo vệ Minecraft Server trước các rủi ro phổ biến như quét cổng, tấn công brute-force SSH, lộ địa chỉ IP thật của máy chủ, phá hoại dữ liệu game và tấn công từ chối dịch vụ. Hệ thống sử dụng các dịch vụ AWS như **EC2, VPC, Security Group, AWS Systems Manager, Amazon GuardDuty, EventBridge, Lambda, SNS, CloudWatch, AWS Backup, Network Load Balancer và AWS Global Accelerator** để xây dựng một mô hình bảo mật hoàn chỉnh.
+
+Điểm nổi bật của dự án là khả năng xây dựng một mô hình **SOAR (Security Orchestration, Automation and Response)** thu nhỏ: khi GuardDuty phát hiện hành vi bất thường, EventBridge sẽ kích hoạt Lambda để tự động chặn IP nguy hiểm và gửi cảnh báo đến người quản trị thông qua Email.
 
 ---
 
-# 1. Tóm tắt dự án (Executive Summary)
+### 2. Ý tưởng & Mục tiêu (Tuyên bố vấn đề)
 
-Dự án **Hệ thống bảo mật máy chủ Minecraft trên AWS** được xây dựng nhằm chứng minh khả năng ứng dụng các dịch vụ bảo mật của Amazon Web Services (AWS) để triển khai một máy chủ trò chơi an toàn, có khả năng phát hiện các hành vi tấn công và tự động thực hiện các biện pháp ứng phó.
+#### 2.1 Bối cảnh & Bài toán
 
-Không chỉ dừng lại ở việc triển khai một Minecraft Server thông thường trên Amazon EC2, hệ thống còn tích hợp nhiều lớp bảo mật nhằm giảm thiểu rủi ro trước các hình thức tấn công phổ biến như dò quét cổng (Port Scanning), Brute Force SSH, DDoS, truy cập trái phép và mất dữ liệu.
+*   **Mục đích hệ thống:**
 
-Kiến trúc của hệ thống được xây dựng theo hướng **Cloud-native Security** và **Security Automation**, kết hợp các dịch vụ như Amazon GuardDuty, Amazon EventBridge, AWS Lambda, AWS Backup, Amazon SNS, AWS Systems Manager Session Manager và AWS Global Accelerator để hình thành một mô hình SOAR (Security Orchestration, Automation and Response) thu nhỏ.
+    Dự án được xây dựng nhằm triển khai một máy chủ Minecraft có khả năng vận hành ổn định trên AWS, đồng thời được bảo vệ bằng nhiều lớp bảo mật khác nhau. Thay vì chỉ chạy server game đơn giản trên một máy ảo, hệ thống được thiết kế theo hướng bảo mật chủ động, có khả năng giám sát, phát hiện và phản ứng tự động trước các dấu hiệu tấn công.
 
-Ngoài mục tiêu đảm bảo an toàn cho máy chủ Minecraft, dự án còn đóng vai trò như một mô hình thực hành giúp sinh viên và kỹ sư Cloud tiếp cận các dịch vụ bảo mật của AWS trong môi trường thực tế.
+*   **Đối tượng sử dụng:**
 
----
+    Hệ thống hướng đến các nhóm người dùng sau:
 
-# 2. Bài toán đặt ra (Problem Statement)
+    * Người quản trị máy chủ Minecraft muốn triển khai server an toàn trên Cloud.
+    * Sinh viên hoặc học viên cần một dự án thực hành về AWS Security.
+    * Nhóm học tập muốn mô phỏng quy trình phát hiện và phản ứng sự cố bảo mật trên môi trường thực tế.
+    * Người chơi Minecraft cần kết nối đến server ổn định, bảo mật và ít bị gián đoạn.
 
-## Thực trạng
+*   **Vấn đề giải quyết:**
 
-Các máy chủ Minecraft công khai thường xuyên trở thành mục tiêu của nhiều hình thức tấn công như:
+    Các máy chủ game public thường gặp nhiều rủi ro bảo mật như:
 
-- Dò quét cổng (Port Scanning).
-- Brute Force vào cổng SSH.
-- Tấn công từ chối dịch vụ (DDoS).
-- Khai thác lỗ hổng để làm sập máy chủ.
-- Phá hoại dữ liệu thế giới (World Data).
-- Truy cập trái phép vào hệ thống quản trị.
+    * Lộ địa chỉ IP thật của máy chủ.
+    * Bị quét cổng để tìm dịch vụ đang mở.
+    * Bị brute-force SSH nếu mở port 22 ra Internet.
+    * Bị tấn công DDoS hoặc flood traffic vào port game.
+    * Bị phá hoại dữ liệu thế giới Minecraft.
+    * Không có hệ thống cảnh báo hoặc phản ứng tự động khi có sự cố.
 
-Bên cạnh đó, nhiều quản trị viên vẫn sử dụng phương pháp quản trị truyền thống thông qua SSH và Key Pair, làm gia tăng nguy cơ rò rỉ thông tin truy cập.
-
-Nếu không có cơ chế phát hiện và phản ứng tự động, các cuộc tấn công có thể gây gián đoạn dịch vụ, mất dữ liệu và ảnh hưởng đến trải nghiệm của người chơi.
-
-## Giải pháp đề xuất
-
-Dự án đề xuất triển khai một kiến trúc bảo mật nhiều lớp trên nền tảng AWS với các đặc điểm:
-
-- Máy chủ Minecraft được triển khai trên Amazon EC2.
-- Không mở cổng SSH ra Internet, thay vào đó sử dụng AWS Systems Manager Session Manager để quản trị.
-- Amazon GuardDuty giám sát liên tục các hoạt động bất thường.
-- Amazon EventBridge tự động chuyển các sự kiện bảo mật.
-- AWS Lambda thực hiện phản ứng tự động bằng cách cập nhật Security Group để chặn IP độc hại.
-- Amazon SNS gửi thông báo ngay lập tức cho quản trị viên.
-- AWS Backup sao lưu dữ liệu định kỳ nhằm hỗ trợ khôi phục sau sự cố.
-- AWS Global Accelerator kết hợp Network Load Balancer giúp che giấu địa chỉ IP thực của máy chủ và tăng khả năng chống DDoS.
+    Dự án giải quyết các vấn đề trên bằng cách triển khai nhiều lớp phòng thủ, bao gồm giới hạn cổng mạng, quản trị không cần SSH keypair, phát hiện mối đe dọa bằng GuardDuty, tự động chặn IP bằng Lambda, gửi cảnh báo bằng SNS và sao lưu dữ liệu định kỳ bằng AWS Backup.
 
 ---
 
-# 3. Mục tiêu dự án
+#### 2.2 Mục tiêu cụ thể
 
-## Mục tiêu chính
+*   **Output mong muốn:**
 
-- Triển khai máy chủ Minecraft an toàn trên AWS.
-- Xây dựng hệ thống phát hiện và phản ứng trước các mối đe dọa.
-- Tự động hóa quy trình xử lý sự cố bảo mật.
-- Bảo vệ dữ liệu và giảm thiểu thời gian gián đoạn dịch vụ.
+    * Một Minecraft Server chạy trên Amazon EC2.
+    * Hạ tầng mạng AWS gồm VPC, Public Subnet, Security Group và Network ACL.
+    * Máy chủ được quản trị thông qua **AWS Systems Manager Session Manager**, không cần mở port SSH 22.
+    * Hệ thống phát hiện xâm nhập sử dụng **Amazon GuardDuty**.
+    * Hệ thống tự động phản ứng sử dụng **Amazon EventBridge + AWS Lambda**.
+    * Cơ chế gửi cảnh báo qua Email bằng **Amazon SNS**.
+    * Cơ chế sao lưu dữ liệu bằng **AWS Backup**.
+    * Cơ chế che giấu IP thật của EC2 bằng **AWS Global Accelerator + Network Load Balancer**.
+    * Tài liệu hướng dẫn triển khai, vận hành, demo và dọn dẹp tài nguyên.
 
-## Mục tiêu phụ
+*   **Tiêu chí đánh giá thành công:**
 
-- Thực hành các dịch vụ bảo mật của AWS.
-- Minh họa mô hình SOAR trên quy mô nhỏ.
-- Nâng cao kỹ năng triển khai hạ tầng Cloud theo kiến trúc Zero Trust.
-- Xây dựng mô hình có khả năng mở rộng và tái sử dụng cho các dự án tương lai.
+    * Minecraft Server có thể hoạt động và cho phép người chơi kết nối thông qua port 25565.
+    * Security Group chỉ mở đúng port cần thiết cho Minecraft, không mở SSH public.
+    * Người quản trị có thể truy cập EC2 bằng Session Manager.
+    * GuardDuty có thể tạo finding hoặc sample finding để mô phỏng tấn công.
+    * EventBridge kích hoạt Lambda khi có finding từ GuardDuty.
+    * Lambda có thể thực hiện phản ứng tự động, ví dụ chặn IP hoặc ghi log xử lý.
+    * SNS gửi được email cảnh báo đến người quản trị.
+    * AWS Backup tạo được bản sao lưu định kỳ cho EC2.
+    * Global Accelerator cung cấp IP tĩnh để người chơi kết nối, giúp hạn chế việc lộ IP thật của EC2.
 
 ---
 
-# 4. Kiến trúc giải pháp (Solution Architecture)
+#### 2.3 Phù hợp với chương trình
 
-Kiến trúc hệ thống được xây dựng theo mô hình nhiều lớp nhằm đảm bảo tính bảo mật, khả năng mở rộng và tự động hóa.
+*   **Use-case gắn với AWS Security:**
+
+    Dự án mô phỏng một tình huống thực tế trong lĩnh vực Cloud Security: triển khai dịch vụ public trên Internet và xây dựng hệ thống giám sát, phát hiện, phản ứng tự động khi có hành vi bất thường. Đây là một use-case phù hợp với các nội dung về AWS Networking, IAM, Monitoring, Threat Detection và Incident Response.
+
+*   **Đúng trọng tâm Cloud:**
+
+    Dự án sử dụng nhiều dịch vụ cốt lõi của AWS để thể hiện các nguyên tắc quan trọng trong điện toán đám mây:
+
+    * **Security:** Bảo vệ hệ thống bằng Security Group, IAM, SSM và GuardDuty.
+    * **Monitoring:** Theo dõi hoạt động bằng CloudWatch và GuardDuty.
+    * **Automation:** Tự động phản ứng với EventBridge và Lambda.
+    * **Resilience:** Sao lưu và khôi phục bằng AWS Backup.
+    * **Availability:** Sử dụng Network Load Balancer và Global Accelerator để cải thiện khả năng truy cập.
+    * **Cost Awareness:** Có quy trình tắt và xóa tài nguyên để tránh phát sinh chi phí.
+
+*   **Giải pháp đề xuất:**
+
+    Xây dựng một hệ thống Minecraft Server bảo mật trên AWS gồm:
+
+    1.  **Game Server Layer:** Sử dụng Amazon EC2 chạy Ubuntu và PaperMC Minecraft Server.
+    2.  **Network Security Layer:** Sử dụng VPC, Subnet, Security Group và NACL để kiểm soát traffic.
+    3.  **Secure Administration Layer:** Sử dụng AWS Systems Manager Session Manager để quản trị EC2 mà không cần mở port SSH.
+    4.  **Threat Detection Layer:** Sử dụng Amazon GuardDuty để phát hiện các hành vi đáng ngờ.
+    5.  **Automated Response Layer:** Sử dụng EventBridge để nhận sự kiện GuardDuty và kích hoạt Lambda.
+    6.  **Notification Layer:** Sử dụng Amazon SNS để gửi Email cảnh báo.
+    7.  **Backup & Recovery Layer:** Sử dụng AWS Backup để sao lưu định kỳ dữ liệu máy chủ.
+    8.  **DDoS Mitigation & IP Protection Layer:** Sử dụng AWS Global Accelerator kết hợp Network Load Balancer để che giấu IP thật của EC2.
+
+*   **Lợi ích và ROI (Hiệu quả đầu tư):**
+
+    *   **Tăng cường bảo mật:** Server không mở port SSH public, giảm đáng kể nguy cơ brute-force.
+    *   **Phản ứng nhanh:** Khi phát hiện hành vi bất thường, hệ thống có thể tự động xử lý thay vì chờ thao tác thủ công.
+    *   **Giảm thiểu gián đoạn:** Backup định kỳ giúp khôi phục dữ liệu khi bị phá hoại hoặc lỗi hệ thống.
+    *   **Dễ trình diễn:** Có thể demo bằng GuardDuty Sample Findings để mô phỏng tấn công mà không cần thực hiện tấn công thật.
+    *   **Tối ưu chi phí học tập:** Hệ thống có thể tắt hoặc xóa tài nguyên sau khi demo để tránh phát sinh chi phí.
+
+---
+
+### 3. Kiến trúc giải pháp
+
+Hệ thống được thiết kế theo mô hình bảo mật nhiều lớp, trong đó Minecraft Server được đặt trên EC2 và được bảo vệ bởi các thành phần mạng, giám sát, tự động hóa và sao lưu.
+
+#### 3.1 Sơ đồ kiến trúc hệ thống
 
 ![Architecture](/images/2-Proposal/Architecture.png)
 
-Luồng hoạt động của hệ thống:
+#### 3.2 Mô tả luồng kiến trúc
 
-```
-Sơ đồ được chia thành 3 phân khu luồng chức năng rõ ràng:
+Người chơi sẽ không kết nối trực tiếp đến IP thật của EC2. Thay vào đó, người chơi kết nối đến IP tĩnh được cung cấp bởi **AWS Global Accelerator**. Traffic sau đó được chuyển đến **Network Load Balancer**, rồi tiếp tục chuyển đến EC2 đang chạy Minecraft Server trên port 25565.
 
-1. LUỒNG TRUY CẬP & GIẢM THIỂU DDOS (TRAFFIC ROUTING & DDOS MITIGATION):
-- [1] 'Người chơi / Người dùng' kết nối qua cổng TCP 25565 tới 'AWS Global Accelerator'.
-- [2] Icon 'AWS Shield Standard' được đặt ở rìa mạng để lọc bỏ các gói tin độc hại Layer 3/4.
-- [3] Traffic sạch sau khi lọc được chuyển tiếp đến 'Network Load Balancer (NLB)' nằm trong VPC.
-- [4] NLB định tuyến traffic đến 'Amazon EC2 Instance' (nhãn: Minecraft Server chạy PaperMC). Bên cạnh EC2 hiển thị icon 'AWS Systems Manager (SSM)' đại diện cho quản trị an toàn, và hiển thị cổng SSH Port 22 bị gạch chéo bằng dấu 'X' màu đỏ (biểu thị đóng hoàn toàn).
+Ở lớp bảo mật và giám sát, **Amazon GuardDuty** theo dõi các log và hành vi bất thường trong tài khoản AWS. Khi phát hiện finding, **Amazon EventBridge** sẽ nhận sự kiện và kích hoạt **AWS Lambda**. Lambda thực hiện hành động phản ứng như ghi log, chặn IP hoặc gửi cảnh báo. **Amazon SNS** được sử dụng để gửi Email thông báo đến người quản trị.
 
-2. LUỒNG PHẢN ỨNG TỰ ĐỘNG HÓA BẢO MẬT (SOAR AUTOMATION LOOP):
-- [5] Một mũi tên mang nhãn 'VPC Flow Logs' nối từ EC2 sang 'Amazon GuardDuty' (Hệ thống phát hiện xâm nhập).
-- [6] 'Amazon GuardDuty' gửi cảnh báo tấn công sang 'Amazon EventBridge' (Bộ lọc sự kiện thời gian thực).
-- [7] 'Amazon EventBridge' kích hoạt một hàm 'AWS Lambda' (hiển thị kèm logo Python nhỏ).
-- [8] 'AWS Lambda' thực thi script tự động chỉnh sửa 'VPC Network ACL', thêm một luật 'DENY IP Kẻ Tấn Công' ngay tại cửa ngõ Subnet.
-- [9] Đồng thời, 'AWS Lambda' kích hoạt 'Amazon SNS' để bắn một Email cảnh báo khẩn cấp (icon Hộp thư/Chuông báo) tới điện thoại người quản trị.
-
-3. LUỒNG SAO LƯU & KHÔI PHỤC THẢM HỌA (DISASTER RECOVERY & BACKUP):
-- [10] Một 'AWS Backup Plan' tự động chụp ảnh snapshot ổ đĩa EBS của EC2 mỗi giờ một lần và lưu trữ an toàn mã hóa bên trong một 'Backup Vault' biệt lập.
-```
+Đồng thời, **AWS Backup** đảm nhiệm việc sao lưu định kỳ máy chủ EC2 để phục vụ khôi phục khi có sự cố.
 
 ---
 
-# Các dịch vụ AWS sử dụng
+#### 3.3 Các dịch vụ AWS sử dụng
 
-| Dịch vụ | Vai trò |
-|----------|----------|
-| Amazon EC2 | Chạy máy chủ Minecraft |
-| Amazon VPC | Phân vùng mạng |
-| Security Group | Kiểm soát lưu lượng truy cập |
-| Network ACL | Lớp bảo vệ mạng |
-| IAM | Quản lý quyền truy cập |
-| Systems Manager Session Manager | Quản trị không cần SSH |
-| Amazon GuardDuty | Phát hiện mối đe dọa |
-| Amazon EventBridge | Điều phối sự kiện |
-| AWS Lambda | Phản ứng tự động |
-| Amazon SNS | Gửi thông báo |
-| AWS Backup | Sao lưu dữ liệu |
-| Backup Vault | Lưu trữ bản sao lưu |
-| Global Accelerator | Che giấu IP và tăng khả năng chống DDoS |
-| Network Load Balancer | Cân bằng tải TCP |
-| Amazon CloudWatch | Thu thập log |
-| AWS CloudTrail | Ghi nhận hoạt động hệ thống |
-
----
-
-# 5. Thiết kế kỹ thuật (Technical Design)
-
-## Quản trị theo mô hình Zero Trust
-
-Hệ thống không mở cổng SSH (22) ra Internet.
-
-Quản trị viên sử dụng AWS Systems Manager Session Manager để kết nối trực tiếp đến EC2 thông qua IAM Role.
-
-Lợi ích:
-
-- Không cần Key Pair.
-- Không cần Bastion Host.
-- Giảm nguy cơ Brute Force SSH.
-- Tuân thủ nguyên tắc Least Privilege.
+| Phân nhóm | Dịch vụ AWS | Lý do lựa chọn & Vai trò |
+| :--- | :--- | :--- |
+| **Compute** | Amazon EC2 | Chạy máy chủ Minecraft trên Ubuntu Server. EC2 đóng vai trò là thành phần xử lý chính của hệ thống game server. |
+| **Game Server** | PaperMC / Minecraft Server | Cung cấp môi trường Minecraft Multiplayer để người chơi kết nối và tương tác. |
+| **Networking** | Amazon VPC | Tạo môi trường mạng riêng biệt cho hệ thống, giúp kiểm soát subnet, route table và các lớp bảo mật mạng. |
+| **Networking** | Public Subnet | Đặt EC2 và Load Balancer trong subnet có thể nhận traffic từ Internet theo đúng cấu hình bảo mật. |
+| **Security** | Security Group | Chỉ mở port TCP 25565 cho Minecraft, không mở port 22 SSH public, giúp giảm nguy cơ brute-force. |
+| **Security** | Network ACL | Bổ sung lớp kiểm soát traffic ở cấp subnet, hỗ trợ chặn IP khi cần thiết. |
+| **Administration** | AWS Systems Manager Session Manager | Cho phép quản trị EC2 trực tiếp trên trình duyệt mà không cần keypair hoặc mở port SSH. |
+| **Identity & Access** | IAM Role | Cấp quyền cho EC2 sử dụng Systems Manager và cấp quyền cho Lambda thực hiện hành động tự động. |
+| **Threat Detection** | Amazon GuardDuty | Phát hiện các hành vi đáng ngờ như port scanning, SSH brute-force hoặc hoạt động bất thường trong tài khoản AWS. |
+| **Event Routing** | Amazon EventBridge | Nhận sự kiện từ GuardDuty và định tuyến đến Lambda để xử lý tự động. |
+| **Automation** | AWS Lambda | Thực hiện phản ứng tự động khi có cảnh báo, ví dụ chặn IP tấn công hoặc gửi cảnh báo. |
+| **Notification** | Amazon SNS | Gửi Email cảnh báo đến người quản trị khi phát hiện sự cố bảo mật. |
+| **Monitoring** | Amazon CloudWatch | Lưu trữ log, theo dõi hoạt động của Lambda và hỗ trợ kiểm tra kết quả khi demo. |
+| **Backup** | AWS Backup | Tự động sao lưu máy chủ EC2, giúp khôi phục dữ liệu Minecraft khi bị lỗi hoặc bị phá hoại. |
+| **Load Balancing** | Network Load Balancer | Phân phối traffic TCP port 25565 đến Minecraft Server, phù hợp với giao thức game ở tầng 4. |
+| **Edge Networking** | AWS Global Accelerator | Cung cấp IP tĩnh toàn cầu, che giấu IP thật của EC2 và cải thiện khả năng truy cập của người chơi. |
 
 ---
 
-## Phát hiện mối đe dọa
+### 4. Triển khai kỹ thuật
 
-Amazon GuardDuty liên tục phân tích:
+#### Các giai đoạn triển khai
 
-- VPC Flow Logs.
-- CloudTrail Logs.
-- DNS Logs.
+Dự án được triển khai theo các giai đoạn chính sau:
 
-Khi phát hiện hành vi bất thường, GuardDuty sinh ra Security Finding.
+1.  **Thiết lập mạng an toàn (VPC & Security Group):**
 
----
+    * Tạo VPC riêng cho project.
+    * Tạo Public Subnet.
+    * Cấu hình Internet Gateway.
+    * Tạo Security Group chỉ mở port TCP 25565.
+    * Không mở port SSH 22 ra Internet.
+    * Bật Auto-assign Public IPv4 cho subnet nếu cần.
 
-## Tự động phản ứng
+2.  **Triển khai Minecraft Server & quản trị không dùng Keypair:**
 
-Sau khi GuardDuty phát hiện mối đe dọa:
+    * Tạo EC2 Ubuntu.
+    * Không sử dụng keypair truyền thống.
+    * Gán IAM Role có policy `AmazonSSMManagedInstanceCore`.
+    * Kết nối vào EC2 thông qua AWS Systems Manager Session Manager.
+    * Cài đặt Java.
+    * Tải và cấu hình PaperMC Minecraft Server.
+    * Tạo user riêng tên `minecraft` để chạy server, không chạy bằng quyền root.
+    * Chạy server ở chế độ nền bằng `screen`.
 
-```
-- [5] Một mũi tên mang nhãn 'VPC Flow Logs' nối từ EC2 sang 'Amazon GuardDuty' (Hệ thống phát hiện xâm nhập).
-- [6] 'Amazon GuardDuty' gửi cảnh báo tấn công sang 'Amazon EventBridge' (Bộ lọc sự kiện thời gian thực).
-- [7] 'Amazon EventBridge' kích hoạt một hàm 'AWS Lambda' (hiển thị kèm logo Python nhỏ).
-- [8] 'AWS Lambda' thực thi script tự động chỉnh sửa 'VPC Network ACL', thêm một luật 'DENY IP Kẻ Tấn Công' ngay tại cửa ngõ Subnet.
-- [9] Đồng thời, 'AWS Lambda' kích hoạt 'Amazon SNS' để bắn một Email cảnh báo khẩn cấp (icon Hộp thư/Chuông báo) tới điện thoại người quản trị.
-```
+3.  **Thiết lập hệ thống phát hiện xâm nhập:**
 
-Quá trình này diễn ra hoàn toàn tự động mà không cần sự can thiệp của quản trị viên.
+    * Bật Amazon GuardDuty.
+    * Theo dõi findings trong GuardDuty.
+    * Sử dụng sample findings để phục vụ demo tấn công giả lập.
 
----
+4.  **Thiết lập tự động phản ứng với Lambda & EventBridge:**
 
-## Sao lưu và khôi phục
+    * Tạo Lambda function xử lý sự kiện bảo mật.
+    * Cấp quyền IAM cần thiết cho Lambda.
+    * Tạo EventBridge Rule nhận sự kiện GuardDuty Finding.
+    * Kết nối EventBridge với Lambda.
+    * Kiểm tra log thực thi trong CloudWatch Logs.
 
-Dữ liệu thế giới Minecraft được sao lưu định kỳ bằng AWS Backup.
+5.  **Thiết lập sao lưu thảm họa với AWS Backup:**
 
-Các bản sao lưu được lưu trong Backup Vault và có thể nhanh chóng phục hồi khi xảy ra sự cố hoặc mất dữ liệu.
+    * Tạo Backup Vault.
+    * Tạo Backup Plan.
+    * Cấu hình backup theo giờ.
+    * Gán EC2 Minecraft Server vào Backup Plan.
+    * Thiết lập retention period để tự động xóa backup cũ.
 
----
+6.  **Che giấu IP thật và kháng DDoS với Global Accelerator + NLB:**
 
-# 6. Các tính năng bảo mật
+    * Tạo Target Group cho port TCP 25565.
+    * Tạo Network Load Balancer.
+    * Gắn EC2 Minecraft Server vào Target Group.
+    * Tạo AWS Global Accelerator.
+    * Trỏ Global Accelerator đến Network Load Balancer.
+    * Sử dụng IP tĩnh của Global Accelerator để người chơi kết nối.
 
-## Bảo mật hạ tầng
+7.  **Cấu hình thông báo Email:**
 
-- Kiến trúc Zero Trust.
-- Không mở SSH Public.
-- IAM Least Privilege.
-- Security Group.
-- Network ACL.
+    * Tạo SNS Topic.
+    * Tạo Email Subscription.
+    * Xác nhận subscription trong Email.
+    * Cập nhật Lambda để gửi cảnh báo qua SNS.
 
-## Phát hiện mối đe dọa
+8.  **Quy trình vận hành và dọn dẹp tài nguyên:**
 
-- Amazon GuardDuty.
-- CloudWatch Logs.
-- AWS CloudTrail.
-
-## Tự động phản ứng
-
-- EventBridge.
-- AWS Lambda.
-- Chặn IP tự động.
-- Gửi Email cảnh báo.
-
-## Khả năng sẵn sàng
-
-- AWS Global Accelerator.
-- Network Load Balancer.
-
-## Khả năng phục hồi
-
-- AWS Backup.
-- Backup Vault.
-- Sao lưu định kỳ.
-- Disaster Recovery.
-
----
-
-# 7. Kế hoạch triển khai
-
-## Giai đoạn 1
-
-Thiết kế kiến trúc
-
-- Phân tích yêu cầu.
-- Thiết kế hạ tầng AWS.
-- Thiết kế kiến trúc bảo mật.
+    * Bật Minecraft Server bằng chuỗi lệnh an toàn.
+    * Kiểm tra trạng thái server bằng `screen` hoặc log.
+    * Tắt server an toàn bằng lệnh `stop`.
+    * Dọn dẹp Global Accelerator, NLB, EC2, Lambda, EventBridge, SNS, GuardDuty và AWS Backup sau khi hoàn thành project.
 
 ---
 
-## Giai đoạn 2
+#### Yêu cầu chuẩn bị (Prerequisites)
 
-Triển khai hạ tầng
+*   **Tài nguyên & Công cụ:**
 
-- Amazon VPC.
-- Security Group.
-- IAM.
-- EC2.
+    * Tài khoản AWS có quyền tạo EC2, VPC, IAM, Lambda, EventBridge, SNS, GuardDuty, CloudWatch, AWS Backup, NLB và Global Accelerator.
+    * Máy tính có cài Minecraft Java Edition để kiểm tra kết nối server.
+    * Trình duyệt web để truy cập AWS Console.
+    * Kiến thức cơ bản về Linux command line.
 
----
+*   **Kiến thức nền tảng:**
 
-## Giai đoạn 3
-
-Triển khai máy chủ Minecraft
-
-- Ubuntu Server.
-- Java Runtime.
-- PaperMC Server.
-- Session Manager.
-
----
-
-## Giai đoạn 4
-
-Triển khai hệ thống bảo mật
-
-- GuardDuty.
-- EventBridge.
-- Lambda.
-- SNS.
+    * VPC Networking: Subnet, Route Table, Internet Gateway, Security Group.
+    * EC2 và IAM Role.
+    * AWS Systems Manager Session Manager.
+    * Amazon GuardDuty và CloudWatch Logs.
+    * Lambda và EventBridge.
+    * SNS Email Notification.
+    * Backup và Disaster Recovery.
+    * Khái niệm DDoS và bảo vệ IP thật của server.
 
 ---
 
-## Giai đoạn 5
+### 5. Lộ trình & Mốc triển khai
 
-Triển khai tính sẵn sàng
+*   **Tuần 1: Xây dựng hạ tầng lõi & Minecraft Server**
 
-- Network Load Balancer.
-- AWS Global Accelerator.
+    * Thiết kế VPC, Subnet, Internet Gateway và Security Group.
+    * Tạo EC2 Ubuntu chạy Minecraft Server.
+    * Cấu hình IAM Role cho Systems Manager.
+    * Truy cập EC2 bằng Session Manager thay vì SSH.
+    * Cài đặt Java và PaperMC.
+    * Tạo user `minecraft` để chạy server an toàn.
+    * Kiểm tra kết nối Minecraft từ máy client.
 
----
+*   **Tuần 2: Bảo mật, giám sát, tự động hóa & nghiệm thu**
 
-## Giai đoạn 6
-
-Triển khai sao lưu
-
-- AWS Backup.
-- Backup Vault.
-- Backup Plan.
-
----
-
-## Giai đoạn 7
-
-Kiểm thử
-
-- Sinh sự kiện tấn công mẫu.
-- Kiểm tra phản ứng tự động.
-- Kiểm tra gửi Email.
-- Kiểm tra khôi phục dữ liệu.
+    * Bật Amazon GuardDuty.
+    * Tạo Lambda function để xử lý sự kiện bảo mật.
+    * Tạo EventBridge Rule để kết nối GuardDuty với Lambda.
+    * Cấu hình SNS gửi Email cảnh báo.
+    * Cấu hình AWS Backup cho EC2.
+    * Tạo Network Load Balancer và Global Accelerator.
+    * Demo sample findings của GuardDuty.
+    * Kiểm tra CloudWatch Logs và Email cảnh báo.
+    * Viết tài liệu vận hành, demo và dọn dẹp tài nguyên.
 
 ---
 
-# 8. Dự toán chi phí
+### 6. Ước tính ngân sách
 
-Hệ thống sử dụng chủ yếu các dịch vụ thuộc AWS Free Tier.
+Việc ước tính chi phí giúp đánh giá khả năng triển khai thực tế của hệ thống trên nền tảng AWS. Chi phí dưới đây được tính theo bảng giá tham khảo của AWS khu vực **Asia Pacific (Singapore)** và chỉ mang tính chất ước lượng. Thực tế có thể thay đổi tùy theo thời gian sử dụng, lưu lượng truy cập và tài nguyên được cấp phát.
 
-Chi phí phát sinh chủ yếu đến từ:
+#### 6.1. Môi trường Workshop / Hướng dẫn
 
-- Amazon EC2.
-- AWS Global Accelerator.
-- Network Load Balancer.
-- GuardDuty.
-- AWS Backup.
+| STT | Dịch vụ AWS | Cấu hình & Tham số tính toán | Chi phí/Tháng |
+| :--- | :--- | :--- | :--- |
+| 1 | Amazon EC2 | 1 instance `t3.medium`, Ubuntu Server, chạy Minecraft Server | ~ $30.37 |
+| 2 | Amazon EBS | 20GB gp3 SSD Storage | ~ $1.60 |
+| 3 | Amazon GuardDuty | Phân tích CloudTrail, DNS Logs và VPC Flow Logs ở quy mô nhỏ | ~ $3.00 |
+| 4 | AWS Lambda | Tự động xử lý và chặn IP, dưới 1 triệu requests/tháng | ~ $0.00 |
+| 5 | Amazon EventBridge | Rule kết nối GuardDuty Finding đến Lambda | ~ $0.00 |
+| 6 | Amazon SNS | Gửi Email cảnh báo bảo mật cho quản trị viên | ~ $0.00 |
+| 7 | Amazon CloudWatch | Lưu trữ log và monitoring khoảng 5GB logs/tháng | ~ $2.50 |
+| 8 | AWS Backup | Backup EC2 mỗi giờ, retention 7 ngày | ~ $2.50 |
+| 9 | Network Load Balancer | 1 TCP Network Load Balancer cho port 25565 | ~ $16.20 |
+| 10 | AWS Global Accelerator | 1 Accelerator cung cấp IP tĩnh toàn cầu | ~ $18.25 |
+| 11 | VPC, IAM, Security Groups, NACL, Systems Manager | Các dịch vụ nền tảng và quản trị bảo mật | $0.00 |
+| **Tổng** | **Ước tính chi phí hàng tháng** | | **~ $74.42** |
 
-Chi phí vận hành phụ thuộc vào:
+*Lưu ý:* Chi phí hạ tầng cloud có thể giảm đáng kể xuống dưới **$40.00/tháng** trong môi trường học tập bằng cách:
 
-- Thời gian hoạt động của EC2.
-- Lượng lưu lượng mạng.
-- Số lượng Security Findings.
-- Dung lượng dữ liệu sao lưu.
+*   Sử dụng EC2 `t3.micro` hoặc `t2.micro` thay vì `t3.medium` khi chỉ demo với ít người chơi.
+*   Chỉ bật EC2 trong thời gian thực hành và Stop Instance khi không sử dụng.
+*   Tắt AWS Global Accelerator khi không cần trình diễn tính năng che giấu IP hoặc chống DDoS.
+*   Xóa các bản backup cũ sau khi kết thúc buổi thực hành.
+*   Tận dụng AWS Free Tier cho Lambda, EventBridge, SNS và CloudWatch.
 
-Có thể sử dụng AWS Pricing Calculator để ước lượng chi phí trước khi triển khai.
+#### 6.2. Môi trường Thực tế
 
----
-
-# 9. Đánh giá rủi ro
-
-| Rủi ro | Mức độ | Biện pháp |
-|---------|---------|-----------|
-| Tấn công DDoS | Cao | Global Accelerator |
-| Brute Force SSH | Cao | Không mở SSH |
-| Mất dữ liệu | Cao | AWS Backup |
-| Truy cập trái phép | Trung bình | IAM & Session Manager |
-| Chi phí vượt dự kiến | Trung bình | AWS Budget và Cost Explorer |
-
----
-
-# 10. Kết quả mong đợi
-
-## Về kỹ thuật
-
-- Triển khai thành công máy chủ Minecraft trên AWS.
-- Xây dựng hệ thống phát hiện xâm nhập tự động.
-- Tự động phản ứng khi phát hiện tấn công.
-- Tự động gửi Email cảnh báo.
-- Thực hiện sao lưu và khôi phục dữ liệu.
-
-## Về học thuật
-
-- Hiểu rõ kiến trúc bảo mật trên AWS.
-- Thực hành mô hình SOAR.
-- Tiếp cận các dịch vụ bảo mật của AWS.
-- Áp dụng kiến thức Cloud Security vào dự án thực tế.
+| STT | Dịch vụ AWS | Cấu hình & Tham số tính toán | Chi phí/Tháng |
+| :--- | :--- | :--- | :--- |
+| 1 | Amazon EC2 | 1 instance `t3.large`, Ubuntu Server, Production Minecraft Server | ~ $60.74 |
+| 2 | Amazon EBS | 50GB gp3 SSD Storage | ~ $4.00 |
+| 3 | Amazon GuardDuty | Giám sát và phát hiện mối đe dọa liên tục | ~ $10.00 |
+| 4 | AWS Lambda | Tự động phản ứng và chặn IP độc hại | ~ $0.50 |
+| 5 | Amazon EventBridge | Event routing giữa GuardDuty và Lambda | ~ $1.00 |
+| 6 | Amazon SNS | Email notification service | ~ $0.50 |
+| 7 | Amazon CloudWatch | Monitoring, dashboard và log storage | ~ $8.00 |
+| 8 | AWS Backup | Backup định kỳ, retention 30 ngày | ~ $10.00 |
+| 9 | Network Load Balancer | 1 Production NLB cho Minecraft TCP traffic | ~ $16.20 |
+| 10 | AWS Global Accelerator | 1 Production Global Accelerator | ~ $18.25 |
+| 11 | VPC, IAM, Security Groups, NACL, Systems Manager | Các dịch vụ nền tảng và quản trị bảo mật | $0.00 |
+| **Tổng** | **Ước tính chi phí hàng tháng** | | **~ $129.19** |
 
 ---
 
-# 11. Hướng phát triển
+### 7. Đánh giá rủi ro
 
-Trong tương lai, hệ thống có thể được mở rộng với các dịch vụ như:
+#### Ma trận rủi ro
 
-- AWS Security Hub.
-- Amazon Inspector.
-- AWS Config.
-- AWS Firewall Manager.
-- Route 53.
-- Amazon CloudFront.
-- AWS CDK hoặc Terraform để tự động triển khai hạ tầng.
-- Dashboard giám sát bằng Grafana.
-- Tích hợp Discord Bot hoặc Telegram Bot để gửi cảnh báo theo thời gian thực.
+| Rủi ro xác định | Khả năng xảy ra | Mức độ ảnh hưởng | Chiến lược giảm thiểu & Phòng ngừa |
+| :--- | :--- | :--- | :--- |
+| **Brute-force SSH vào máy chủ** | Trung bình | Cao | Không mở port 22 ra Internet. Quản trị máy chủ thông qua AWS Systems Manager Session Manager. |
+| **Lộ địa chỉ IP thật của EC2** | Trung bình | Cao | Sử dụng AWS Global Accelerator kết hợp Network Load Balancer để người chơi kết nối qua IP tĩnh thay vì IP EC2. |
+| **Port scanning hoặc reconnaissance** | Trung bình | Trung bình | Bật Amazon GuardDuty để phát hiện hành vi quét cổng và gửi finding cho EventBridge. |
+| **Tấn công DDoS vào Minecraft Server** | Trung bình | Cao | Sử dụng Global Accelerator và Network Load Balancer để giảm rủi ro truy cập trực tiếp vào EC2. |
+| **Phá hoại dữ liệu world Minecraft** | Trung bình | Cao | Cấu hình AWS Backup sao lưu định kỳ EC2, retention 7 ngày hoặc 30 ngày tùy môi trường. |
+| **Lambda chặn nhầm IP hợp lệ** | Thấp | Trung bình | Kiểm tra kỹ logic xử lý finding, ghi log đầy đủ trong CloudWatch và có quy trình khôi phục rule khi cần. |
+| **Chi phí AWS phát sinh ngoài ý muốn** | Trung bình | Trung bình | Dừng hoặc xóa tài nguyên sau demo. Xóa Global Accelerator, NLB, EC2, Backup Vault và tắt GuardDuty khi không dùng. |
+| **Chạy Minecraft Server bằng quyền root** | Trung bình | Cao | Tạo user riêng `minecraft` và chạy server bằng user hạn chế quyền thay vì root. |
 
 ---
 
-# 12. Kết luận
+#### Kế hoạch dự phòng (Contingency Plan)
 
-Dự án **Hệ thống bảo mật máy chủ Minecraft trên AWS** không chỉ giải quyết bài toán triển khai một máy chủ trò chơi an toàn mà còn minh họa cách kết hợp các dịch vụ bảo mật của AWS để xây dựng một hệ thống giám sát và phản ứng tự động trước các mối đe dọa.
+*   **Trường hợp Minecraft Server bị lỗi hoặc bị phá hoại dữ liệu:**
 
-Thông qua việc áp dụng các nguyên tắc Zero Trust, Security Automation và Disaster Recovery, hệ thống mang lại khả năng bảo vệ hạ tầng, giảm thiểu rủi ro và nâng cao khả năng sẵn sàng của dịch vụ. Đây đồng thời là mô hình thực hành phù hợp cho việc học tập, nghiên cứu và phát triển các giải pháp Cloud Security trong môi trường thực tế.
+    Sử dụng AWS Backup để khôi phục lại EC2 hoặc dữ liệu world từ bản sao lưu gần nhất. Với backup theo giờ, mức mất dữ liệu tối đa có thể được giới hạn trong khoảng dưới 1 giờ đối với môi trường demo.
+
+*   **Trường hợp phát hiện IP độc hại:**
+
+    GuardDuty tạo finding, EventBridge kích hoạt Lambda, Lambda thực hiện phản ứng tự động và gửi cảnh báo thông qua SNS. Người quản trị có thể kiểm tra chi tiết sự kiện trong CloudWatch Logs.
+
+*   **Trường hợp hệ thống bị lỗi trong lúc demo:**
+
+    Có thể sử dụng GuardDuty Sample Findings để tạo sự kiện mô phỏng thay vì chờ tấn công thật. Điều này giúp quá trình báo cáo ổn định và tránh phụ thuộc vào điều kiện bên ngoài.
+
+*   **Trường hợp phát sinh chi phí không mong muốn:**
+
+    Thực hiện quy trình dọn dẹp tài nguyên theo thứ tự: Global Accelerator, Network Load Balancer, Target Group, EC2, Lambda, EventBridge, SNS, GuardDuty, AWS Backup và các rule NACL tùy chỉnh.
+
+---
+
+### 8. Các Luồng Xử Lý Hệ Thống & Đặc Điểm Kỹ Thuật
+
+Hệ thống áp dụng kiến trúc bảo mật nhiều lớp kết hợp tự động hóa phản ứng sự cố. Các luồng xử lý chính bao gồm luồng người chơi kết nối vào game, luồng quản trị an toàn, luồng phát hiện tấn công, luồng tự động phản ứng và luồng sao lưu khôi phục dữ liệu.
+
+#### 8.1 Các Luồng Xử Lý Cốt Lõi (Core Processing Flows)
+
+*   **Luồng người chơi kết nối vào Minecraft Server:**
+
+    Người chơi sử dụng IP tĩnh do AWS Global Accelerator cung cấp để kết nối đến Minecraft Server. Traffic TCP port 25565 được chuyển qua Global Accelerator đến Network Load Balancer, sau đó đến EC2 đang chạy Minecraft Server. Cách này giúp hạn chế việc công khai IP thật của EC2.
+
+*   **Luồng quản trị an toàn:**
+
+    Người quản trị không sử dụng SSH keypair và không mở port 22. Thay vào đó, quản trị viên truy cập EC2 thông qua AWS Systems Manager Session Manager trên AWS Console. Cơ chế này giảm rủi ro bị brute-force SSH và loại bỏ nhu cầu quản lý file `.pem`.
+
+*   **Luồng phát hiện xâm nhập:**
+
+    Amazon GuardDuty phân tích log và hành vi trong tài khoản AWS để phát hiện các dấu hiệu bất thường như port scanning, brute-force hoặc hoạt động đáng ngờ. Khi có finding, GuardDuty gửi sự kiện đến EventBridge.
+
+*   **Luồng tự động phản ứng sự cố:**
+
+    EventBridge Rule nhận GuardDuty Finding và kích hoạt AWS Lambda. Lambda xử lý thông tin sự kiện, trích xuất IP nghi vấn nếu có, thực hiện hành động phản ứng như chặn IP, ghi log hoặc gửi cảnh báo. Kết quả xử lý được ghi lại trong CloudWatch Logs để phục vụ kiểm tra.
+
+*   **Luồng cảnh báo Email:**
+
+    Sau khi Lambda xử lý sự kiện, Amazon SNS gửi Email cảnh báo đến quản trị viên. Nội dung cảnh báo có thể bao gồm loại mối đe dọa, thời gian phát hiện, IP nguồn và hành động đã thực hiện.
+
+*   **Luồng sao lưu và khôi phục:**
+
+    AWS Backup tự động tạo bản sao lưu EC2 theo lịch định kỳ. Khi server gặp sự cố, bị phá hoại hoặc dữ liệu world bị lỗi, người quản trị có thể khôi phục từ backup gần nhất để giảm thiểu mất mát dữ liệu.
+
+---
+
+#### 8.2 Đặc Điểm Kiến Trúc (Architectural Strengths)
+
+*   **Bảo mật theo chiều sâu (Defense in Depth):**
+
+    Hệ thống không dựa vào một lớp bảo mật duy nhất mà kết hợp nhiều lớp: Security Group, NACL, IAM, SSM, GuardDuty, Lambda, SNS và Backup. Điều này giúp tăng khả năng chống chịu trước nhiều loại rủi ro khác nhau.
+
+*   **Không mở SSH public:**
+
+    Việc quản trị EC2 bằng Session Manager giúp loại bỏ rủi ro phổ biến khi mở port SSH 22 ra Internet. Đây là một điểm mạnh quan trọng trong thiết kế bảo mật của project.
+
+*   **Tự động hóa phản ứng sự cố:**
+
+    Sự kết hợp giữa GuardDuty, EventBridge và Lambda tạo thành mô hình SOAR thu nhỏ. Hệ thống không chỉ phát hiện sự cố mà còn có khả năng phản ứng tự động.
+
+*   **Khả năng khôi phục sau sự cố:**
+
+    AWS Backup giúp bảo vệ dữ liệu Minecraft World trước các rủi ro như lỗi hệ thống, thao tác sai hoặc phá hoại trong game.
+
+*   **Che giấu IP thật của máy chủ:**
+
+    Global Accelerator và NLB giúp người chơi kết nối qua IP tĩnh thay vì IP public trực tiếp của EC2. Điều này giúp giảm nguy cơ attacker nhắm trực tiếp vào máy chủ gốc.
+
+*   **Dễ demo và kiểm chứng:**
+
+    GuardDuty Sample Findings cho phép tạo tình huống tấn công giả lập, giúp chứng minh luồng phát hiện và phản ứng tự động một cách ổn định trong buổi báo cáo.
+
+---
+
+### 9. Kết quả kỳ vọng
+
+*   **Cải tiến kỹ thuật:**
+
+    * Minecraft Server được triển khai thành công trên AWS EC2.
+    * Người chơi có thể kết nối vào server thông qua port 25565.
+    * Máy chủ không mở SSH public, giảm nguy cơ brute-force.
+    * GuardDuty phát hiện được các hành vi đáng ngờ hoặc sample findings.
+    * EventBridge kích hoạt Lambda tự động khi có finding.
+    * Lambda ghi nhận sự kiện, thực hiện phản ứng và gửi cảnh báo.
+    * SNS gửi Email cảnh báo đến người quản trị.
+    * AWS Backup tạo bản sao lưu định kỳ phục vụ khôi phục dữ liệu.
+    * Global Accelerator và NLB hỗ trợ che giấu IP thật của EC2.
+
+*   **Giá trị lâu dài:**
+
+    * Xây dựng được một mô hình bảo mật Cloud thực tế, dễ mở rộng cho các loại game server hoặc dịch vụ public khác.
+    * Áp dụng được các nguyên tắc quan trọng của AWS Security như Least Privilege, Defense in Depth, Secure Administration và Automated Incident Response.
+    * Tạo nền tảng để phát triển thêm các tính năng nâng cao như dashboard giám sát, cảnh báo qua Discord/Telegram, tự động snapshot world riêng biệt, hoặc triển khai server bằng container trên ECS/Fargate.
+    * Cung cấp một project có tính thực tiễn cao, phù hợp để đưa vào portfolio cá nhân hoặc báo cáo môn học về Cloud Computing và Cybersecurity.
+
+---

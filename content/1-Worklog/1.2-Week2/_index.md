@@ -1,31 +1,34 @@
 ---
 title: "Week 2 Worklog"
-date: 2026-04-24
+date: 2026-04-27
 weight: 2
 chapter: false
 pre: " <b> 1.2. </b> "
 ---
 
-### Week 2 Objectives
+### Week 2 Objectives:
 
-* Practice AWS cost governance using budgets and usage alerts.
-* Understand budget types: cost budget, usage budget, RI budget, and savings plan budget.
-* Create a personal cleanup and savings plan for remaining resources.
+* Understand the fundamental concepts of Cloud Computing.
+* Learn the AWS Global Infrastructure model.
+* Differentiate the Cloud service models (IaaS, PaaS, and SaaS).
+* Become familiar with the AWS Management Console and core AWS services.
 
-### Tasks to be carried out this week:
+### Tasks to be completed this week:
 
-| Day | Task | Start Date | Completion Date | Reference Material |
-| --- | --- | ---------- | --------------- | ----------------------------------------- |
-| 2 | - Review cost-budget terminology<br>- Create a monthly cost budget<br>- Set email notification thresholds | 24/04/2026 | 24/04/2026 | AWS Budgets console |
-| 3 | - Create a usage budget for key services<br>- Identify highest-usage services in the account | 25/04/2026 | 25/04/2026 | AWS Cost Explorer |
-| 4 | - Review Reserved Instance concepts<br>- Document future RI use cases if applicable | 26/04/2026 | 26/04/2026 | AWS RI documentation |
-| 5 | - Build a savings plan and budget summary<br>- Compare budget vs actual cost | 27/04/2026 | 28/04/2026 | AWS Budgets reports |
-| 6 | - Identify idle or forgotten resources<br>- Create a weekly cleanup checklist | 28/04/2026 | 28/04/2026 | AWS Trusted Advisor |
+| Day | Tasks | Start Date | Completion Date | References |
+| --- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
+| Mon | - Learn the fundamentals of Cloud Computing<br>- Compare On-premise infrastructure and Cloud Computing<br>- Summarize the key benefits of cloud technologies | 27/04/2026 | 27/04/2026 | https://www.youtube.com/@AWSStudyGroup https://cloudjourney.awsstudygroup.com/ |
+| Tue | - Study the IaaS, PaaS, and SaaS service models<br>- Compare the advantages and limitations of each model | 28/04/2026 | 28/04/2026 | https://www.youtube.com/@AWSStudyGroup https://cloudjourney.awsstudygroup.com/ |
+| Wed | - Learn about AWS Global Infrastructure<br>- Differentiate Regions, Availability Zones, and Edge Locations | 29/04/2026 | 29/04/2026 | https://www.youtube.com/@AWSStudyGroup https://cloudjourney.awsstudygroup.com/ |
+| Thu | - Explore the AWS Management Console<br>- Learn the purposes of EC2, IAM, VPC, S3, and CloudWatch | 30/04/2026 | 30/04/2026 | https://www.youtube.com/@AWSStudyGroup https://cloudjourney.awsstudygroup.com/ |
+| Fri | - Summarize Cloud Foundation concepts<br>- Complete the introductory AWS Fundamentals Hands-on Labs | 01/05/2026 | 01/05/2026 | https://www.youtube.com/@AWSStudyGroup https://cloudjourney.awsstudygroup.com/ |
+| Sat | - Review all topics covered during the week<br>- Update personal learning notes and complete any remaining labs | 02/05/2026 | 02/05/2026 | https://www.youtube.com/@AWSStudyGroup https://cloudjourney.awsstudygroup.com/ |
+| Sun | - Continue self-learning Cyber Security with a Red Team focus<br>- Study Reconnaissance, Enumeration, and Attack Surface concepts<br>- Prepare for next week's Networking topics | 03/05/2026 | 03/05/2026 | Personal Notes |
 
-### Week 2 Achievements
+### Week 2 Achievements:
 
-* Created a cost budget with email alerts.
-* Created a usage budget to track Free Tier consumption.
-* Understood when to use budgets vs usage budgets.
-* Built a cleanup checklist to reduce forgotten resources.
-* Learned how to review budget status from the Billing Dashboard.
+* Gained a solid understanding of Cloud Computing fundamentals and the benefits of cloud platforms.
+* Successfully differentiated the IaaS, PaaS, and SaaS service models.
+* Understood the AWS Global Infrastructure, including Regions, Availability Zones, and Edge Locations.
+* Became familiar with the AWS Management Console and core AWS services such as EC2, IAM, VPC, S3, and CloudWatch.
+* Completed the introductory Hands-on Labs and prepared for AWS Networking topics in the following week.

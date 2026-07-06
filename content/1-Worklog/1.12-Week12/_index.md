@@ -1,32 +1,35 @@
 ---
 title: "Week 12 Worklog"
-date: 2026-07-03
+date: 2026-07-06
 weight: 12
 chapter: false
 pre: " <b> 1.12. </b> "
 ---
 
-### Week 12 Objectives
+### Week 12 Objectives:
 
-* Complete security automation and alerting for the graduation project.
-* Finalize safe startup and shutdown workflows for Minecraft.
-* Run end-to-end validation, demo the SOAR flow, clean up AWS resources, and finalize report materials.
+* Finalize the **Minecraft Security Based on AWS** project.
+* Complete the Workshop Project required by the AWS First Cloud Journey program and submit it to the company.
+* Finalize the internship report, technical documentation, and deployment guides.
+* Summarize the internship experience and evaluate the learning outcomes.
 
-### Tasks to be carried out this week:
+### Tasks to be completed this week:
 
-| Day | Task | Start Date | Completion Date | Reference Material |
-| --- | --- | ---------- | --------------- | ----------------------------------------- |
-| 2 | - Create SNS topic `Minecraft-Attack-Alerts`<br>- Confirm email subscription<br>- Grant Lambda permission to publish to SNS | 03/07/2026 | 03/07/2026 | AWS SNS documentation |
-| 3 | - Update Lambda code with SNS topic ARN<br>- Deploy the updated function<br>- Review published message format | 04/07/2026 | 04/07/2026 | Lambda deployment notes |
-| 4 | - Write a safe Minecraft startup script<br>- Verify `screen -ls` and log files<br>- Test restart behavior | 05/07/2026 | 05/07/2026 | Minecraft operations notes |
-| 5 | - Write a safe shutdown script<br>- Verify world save behavior<br>- Document graceful stop steps | 06/07/2026 | 07/07/2026 | Linux service best practices |
-| 6 | - Run GuardDuty sample findings<br>- Check CloudWatch Logs and email alerts<br>- Execute the full cleanup sequence<br>- Review AWS Billing Dashboard | 07/07/2026 | 10/07/2026 | Project cleanup checklist |
+| Day | Tasks | Start Date | Completion Date | References |
+| --- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
+| Mon | - Review the entire Minecraft Security Based on AWS project<br>- Verify all deployed AWS services<br>- Fix any remaining issues | 06/07/2026 | 06/07/2026 | Personal Project Notes |
+| Tue | - Complete the Workshop Project required by the AWS First Cloud Journey program<br>- Prepare the source code, documentation, and supporting screenshots for submission | 07/07/2026 | 07/07/2026 | AWS First Cloud Journey Guidelines |
+| Wed | - Finalize the internship report and technical documentation<br>- Update the architecture diagram, worklog, and bilingual Markdown documentation | 08/07/2026 | 08/07/2026 | Personal Documentation |
+| Thu | - Perform a final system verification<br>- Clean up unused AWS resources<br>- Review the AWS Billing Dashboard to ensure no unexpected charges remain | 09/07/2026 | 09/07/2026 | AWS Billing & Cost Management |
+| Fri | - Prepare the presentation slides and internship summary<br>- Consolidate the knowledge, technical skills, and practical experience gained throughout the program | 10/07/2026 | 10/07/2026 | Personal Notes |
+| Sat | - Finalize the internship submission package<br>- Review all documentation before submission<br>- Prepare for the internship closing session | 11/07/2026 | 11/07/2026 | Internship Documentation |
+| Sun | - Conclude the AWS First Cloud Journey internship program<br>- Evaluate achievements, lessons learned, and future career development plans | 12/07/2026 | 12/07/2026 | Personal Reflection |
 
-### Week 12 Achievements
+### Week 12 Achievements:
 
-* Completed the alerting path: GuardDuty finding, Lambda automation, and SNS email notification.
-* Validated startup and shutdown scripts for the Minecraft server.
-* Demonstrated the end-to-end SOAR flow: attack detection, IP blocking, and alert notification.
-* Cleaned up AWS resources in the correct dependency order.
-* Confirmed no unexpected charges remain in AWS Billing.
-* Prepared final bilingual Markdown documentation and graduation report.
+* Successfully finalized the **Minecraft Security Based on AWS** project and verified that the system operated as expected.
+* Completed the **Workshop Project** required by the **AWS First Cloud Journey** program and submitted all required deliverables to the company.
+* Finalized the internship report, worklog, technical documentation, and bilingual deployment guides.
+* Cleaned up AWS resources, reviewed AWS costs, and confirmed that no unexpected charges remained.
+* Summarized the knowledge and practical experience gained in AWS Cloud, DevSecOps, and Cyber Security throughout the internship.
+* Successfully completed the **AWS First Cloud Journey** internship program and prepared to apply the acquired knowledge to future real-world cloud projects.

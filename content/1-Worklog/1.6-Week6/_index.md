@@ -1,31 +1,34 @@
 ---
 title: "Week 6 Worklog"
-date: 2026-05-22
+date: 2026-05-25
 weight: 6
 chapter: false
 pre: " <b> 1.6. </b> "
 ---
 
-### Week 6 Objectives
+### Week 6 Objectives:
 
-* Master EC2 instance lifecycle, storage, and AMI management.
-* Practice Linux and Windows instance deployment.
-* Understand cost governance controls for EC2.
+* Learn AWS monitoring and security services.
+* Become familiar with Amazon CloudWatch, AWS CloudTrail, and Amazon GuardDuty.
+* Prepare the architecture and implementation plan for the **Minecraft Security Based on AWS** project.
+* Participate in the **First Cloud AI Journey – Agentic AI Build Week** to explore the latest AI and Cloud technologies.
 
-### Tasks to be carried out this week:
+### Tasks to be completed this week:
 
-| Day | Task | Start Date | Completion Date | Reference Material |
-| --- | --- | ---------- | --------------- | ----------------------------------------- |
-| 2 | - Review EC2 instance types and selection criteria<br>- Study EBS volume types and use cases | 22/05/2026 | 22/05/2026 | AWS EC2 documentation |
-| 3 | - Launch a Linux EC2 instance<br>- Launch a Windows EC2 instance<br>- Compare bootstrap options | 23/05/2026 | 23/05/2026 | AWS EC2 console |
-| 4 | - Modify instance type<br>- Create an EBS snapshot<br>- Create a custom AMI | 24/05/2026 | 24/05/2026 | AWS EC2 lifecycle docs |
-| 5 | - Practice recovering access for Linux and Windows<br>- Configure RDP access recovery<br>- Review EBS Archive | 25/05/2026 | 26/05/2026 | AWS recovery guides |
-| 6 | - Deploy a LAMP server on Amazon Linux<br>- Deploy a Node.js application<br>- Review IAM-based EC2 cost governance controls | 26/05/2026 | 26/05/2026 | AWS deployment tutorials |
+| Day | Tasks | Start Date | Completion Date | References |
+| --- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
+| Mon | - Learn Amazon CloudWatch<br>- Explore Metrics, Logs, and Alarms<br>- Practice creating basic CloudWatch Alarms | 25/05/2026 | 25/05/2026 | https://www.youtube.com/@AWSStudyGroup https://cloudjourney.awsstudygroup.com/ |
+| Tue | - Learn AWS CloudTrail<br>- Review API activity history within the AWS account<br>- Understand CloudTrail's role in auditing and security | 26/05/2026 | 26/05/2026 | https://www.youtube.com/@AWSStudyGroup https://cloudjourney.awsstudygroup.com/ |
+| Wed | - Learn Amazon GuardDuty and common security findings<br>- Explore EventBridge, AWS Lambda, and Amazon SNS for automated security notifications | 27/05/2026 | 27/05/2026 | https://www.youtube.com/@AWSStudyGroup https://cloudjourney.awsstudygroup.com/ |
+| Thu | - Analyze project requirements<br>- Design the **Minecraft Security Based on AWS** architecture<br>- Identify AWS services required for the project | 28/05/2026 | 28/05/2026 | Personal Project Notes |
+| Fri | - Finalize the architecture diagram and implementation plan<br>- Prepare the AWS environment for project deployment starting on 01/06/2026 | 29/05/2026 | 29/05/2026 | https://www.youtube.com/@AWSStudyGroup https://cloudjourney.awsstudygroup.com/ |
+| Sat | - Attend the **First Cloud AI Journey – Agentic AI Build Week** in Ho Chi Minh City<br>- Learn about Agentic AI trends and AI applications on AWS<br>- Exchange knowledge and experience with mentors and other participants | 30/05/2026 | 30/05/2026 | First Cloud AI Journey – Agentic AI Build Week |
+| Sun | - Review all knowledge gained during the first six weeks<br>- Finalize learning notes and review the project implementation plan<br>- Prepare to begin the project implementation phase | 31/05/2026 | 31/05/2026 | Personal Notes |
 
-### Week 6 Achievements
+### Week 6 Achievements:
 
-* Launched and managed Linux and Windows EC2 instances.
-* Created snapshots and AMIs for reuse and recovery.
-* Practiced instance type changes and access recovery procedures.
-* Deployed web applications on Linux instances.
-* Understood IAM policies that control instance families, types, and storage usage.
+* Gained an understanding of Amazon CloudWatch, AWS CloudTrail, and Amazon GuardDuty for monitoring and securing AWS environments.
+* Completed the research on AWS services required for the **Minecraft Security Based on AWS** project.
+* Designed the project architecture and finalized the implementation plan, ready to begin on **01/06/2026**.
+* Participated in the **First Cloud AI Journey – Agentic AI Build Week**, gaining insights into the latest Agentic AI and cloud technology trends.
+* Successfully completed the preparation phase and was fully ready to start the project implementation.
